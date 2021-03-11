@@ -7,15 +7,15 @@ public class Witness {
 
     }
 
-    public Witness(String name, String address, int age, Date dob, String description, ArrayList<String> incidentReport, boolean relationToVictim){
+    public Witness(String name, String address, int age, int dob, String description, ArrayList<String> incidentReport, boolean relationToVictim){
 
     }
 
     public ArrayList<String> getIncidentReport(){
-
+        return null;
     }
 
     public boolean getRelation(){
-        
+        return false;
     }
 }

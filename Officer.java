@@ -1,11 +1,13 @@
-<<<<<<< HEAD
 import java.util.ArrayList;
 public class Officer extends User{
+    protected String firstName;
+    protected String lastName;
+    protected String department;
     public Officer() {
         super();
     }
     
-    public Officer(String firstName, String lastName) {
+    public Officer(String firstName, String lastName, String department) {
         super();
     }
 
@@ -42,48 +44,3 @@ public class Officer extends User{
 
     }
 }
-=======
-import java.util.ArrayList;
-public class Officer extends User{
-    public Officer() {
-        super();
-    }
-    
-    public Officer(String firstName, String lastName) {
-        super();
-    }
-
-    public String getName() {
-        return "";
-    }
-
-    public int getEmployeeID() {
-        return 0;
-    }
-
-    public void addSuspect(String name, String address, int age, int dob, String description,
-                           String gender, String race, String hairColor, double height, double weight,
-                           boolean tattoo, boolean criminalRecord, ArrayList<String> familyMembers) {
-
-                           }
-
-    public void addWitness(String name, String address, int age, int dob, String description, 
-                           ArrayList<String> incidentReport, boolean relationToVictim) {
-
-    }
-
-    public void addVictim(String name, String address, int age, int dob, String description,
-                          ArrayList<String> incidentReport, boolean alive, int phoneNum) {
-
-    }
-
-    public void addCase(Crime crime, ArrayList<Suspect> suspects, ArrayList<Witness> witnesses, 
-    ArrayList<Victim> victims, ArrayList<Evidence> evidence, int caseID, int date, String location) {
-
-    }
-
-    public void addEvidence(String description, boolean fingerprints, boolean weapon, boolean drugs, String location, ArrayList<String> witnesses) {
-
-    }
-}
->>>>>>> 632d994549c43b8bc935ad4054ab34be46bf9cbc
