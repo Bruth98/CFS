@@ -1,0 +1,56 @@
+[
+
+    {
+      "id":1,
+      "name":"Jacob Jackson",
+      "dateOfBirth":"03/02/1971",
+      "dateOfDeath" : "N/A",
+      "previousCrimes" : "robbery, domestic assault",
+      "hairColor" : "black",
+      "eyeColor"  : "brown",
+      "height" : "5 feet 9 inches",
+      "weight" : null,
+      "race" : "White",
+      "gender" : "male",
+      "married" : null,
+      "occupation" : null,
+      "tatoo" : true,
+      "hair" : true,
+      "other" : null
+    },{
+      "id":2,
+      "name":"Stephen King" ,
+      "dateOfBirth":"03/02/1968",
+      "dateOfDeath" : "N/A",
+      "previousCrimes" : "Arson",
+      "hairColor" : "brown",
+      "eyeColor"  : "brown",
+      "height" : "5 feet 5 inches",
+      "weight" : "160lbs",
+      "race" : "African American",
+      "gender" : "male",
+      "married" : false,
+      "occupation" : null,
+      "tatoo" : false,
+      "hair" : true,
+      "other" : "scar over right eye"
+    },{
+      "id":3,
+      "name":"Nathan Newl" ,
+      "dateOfBirth": "06/16/1921",
+      "dateOfDeath" : "02/23/2003",
+      "previousCrimes" : "Theft",
+      "hairColor" : "brown",
+      "eyeColor"  : "brown",
+      "height" : "5 feet 8 inches",
+      "weight" : null,
+      "race" : "White",
+      "gender" : "male",
+      "married" : true,
+      "occupation" : "Gas station cashier",
+      "tatoo" : true,
+      "hair" : true,
+      "other" : "this person has been seen with a large beard"
+    }
+ 
+ ]

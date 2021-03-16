@@ -1,0 +1,56 @@
+[
+
+    {
+      "id":1,
+      "name":"Aron Smith",
+      "dateOfBirth":"02/05/1962",
+      "dateOfDeath" : "N/A",
+      "workPlace" : "Greenhouse fire department",
+      "rank" : "Captain",
+      "hairColor" : "black",
+      "eyeColor"  : "blue",
+      "height" : "6 feet 2 inches",
+      "weight" : "210lbs",
+      "race" : "White",
+      "gender" : "male",
+      "married" : true,
+      "tatoo" : false,
+      "hair" : true,
+      "other" : null
+    },{
+      "id":2,
+      "name":"James Newton",
+      "dateOfBirth": "07/30/1967",
+      "dateOfDeath" : "08/21/1998",
+      "workPlace" : "Gasroad Police Department",
+      "rank" : "Officer",
+      "hairColor" : "brown",
+      "eyeColor"  : "green",
+      "height" : "6 feet",
+      "weight" : "200lbs",
+      "race" : "African American",
+      "gender" : "male",
+      "married" : false,
+      "tatoo" : false,
+      "hair" : true,
+      "other" : null
+    },{
+      "id":3,
+      "name":"Coby Bradshaw",
+      "dateOfBirth": "09/12/1907",
+      "dateOfDeath" : "06/14/1980",
+      "workPlace" : "Wheelsteal Police Department",
+      "rank" : "Sergeant",
+      "hairColor" : "black",
+      "eyeColor"  : "blue",
+      "height" : "5 feet 8 inches",
+      "weight" : "165lbs",
+      "race" : "White",
+      "gender" : "male",
+      "married" : true,
+      "tatoo" : false,
+      "hair" : true,
+      "other" : null
+    }
+ 
+ ]
