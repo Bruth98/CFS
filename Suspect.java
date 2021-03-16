@@ -4,14 +4,16 @@ public class Suspect extends PersonOfIneterst{
 
     public Suspect() {
         super();
+        this.family = null;
     }
 
     public Suspect(ArrayList<String> family) {
         super();
+        this.family = family;
     }
 
     public ArrayList<String> getFamily() {
-        return null;
+        return this.family;
     }
     
 }

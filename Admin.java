@@ -9,11 +9,11 @@ public class Admin extends Officer{
     }
 
     public String getName() {
-        return "";
+        return this.firstName + " " + this.lastName;
     }
 
     public int getEmployeeID() {
-        return 0;
+        return this.employeeID;
     }
 
 

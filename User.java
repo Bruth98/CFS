@@ -1,11 +1,13 @@
 public class User {
-    protected String userID;
+    protected int employeeID;
     protected String password;
     public User() {
-
+        this.employeeID = 0;
+        this.password = "password";
     }
-    public User(String userID, String password) {
-
+    public User(int employeeID, String password) {
+        this.employeeID = employeeID;
+        this.password = password;
     }
 
     public String getSuspect(String firstName, String lastName) {
