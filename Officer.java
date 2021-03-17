@@ -28,7 +28,7 @@ public class Officer extends User{
     public void addSuspect(String name, String address, int age, int dob, String description,
                            String gender, String race, String hairColor, double height, double weight,
                            boolean tattoo, boolean criminalRecord, ArrayList<String> familyMembers) {
-        Suspect suspect = new Suspect(name, address, age, dob, description, gender, race, hairColor, height, weight, tattoo, criminalRecord, familyMembers);
+        //Suspect suspect = new Suspect(name, address, age, dob, description, gender, race, hairColor, height, weight, tattoo, criminalRecord, familyMembers);
                            }
 
     public void addWitness(String name, String address, int age, int dob, String description, 
