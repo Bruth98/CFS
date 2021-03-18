@@ -1,0 +1,20 @@
+[
+
+    {
+      "id":1,
+      "personId" : 1,
+      "previousCrimes" : "robbery, domestic assault",
+      "other" : null
+    },{
+      "id":2,
+      "personId" : 2,
+      "previousCrimes" : "Arson",
+      "other" : "scar over right eye"
+    },{
+      "id":3,
+      "personId" : 3,
+      "previousCrimes" : "Theft",
+      "other" : "this person has been seen with a large beard"
+    }
+ 
+ ]
