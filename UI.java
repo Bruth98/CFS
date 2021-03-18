@@ -15,5 +15,14 @@ public class UI {
         System.out.println(userID);
         System.out.println(password);
     }
-    
+
+public void play(){
+   User user =  User.getInstance();
+   System.out.println("Current Users");
+
+
+}
+public void displayUsers(){
+    User user = User.getInstance();
+    ArrayList<User> users = user.getPeople();
 }
