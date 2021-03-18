@@ -1,4 +1,4 @@
-public class Criminal extends Suspect{
+public class Criminal extends Suspect {
     public boolean inJail;
     public boolean felony;
     public int numCrimes;
@@ -24,7 +24,7 @@ public class Criminal extends Suspect{
     }
 
     public void setCriminalRecord() {
-        PersonOfIneterst.hasCriminalRecord = true;
+       
     }
 
 

@@ -1,26 +1,32 @@
 import java.util.ArrayList;
-public class Victim {
+public class Victim extends Person{
     private ArrayList<String> incidentReport;
     private boolean alive;
     private int phoneNum;
 
     public Victim(){
-
+        super();
+        this.incidentReport = null;
+        this.alive = true;
+        this.phoneNum = 0000000000;
     }
 
-    public Victim(String name, String address, int age, Date dob, String Description, ArrayList<String> incidentReport, boolean alive, int phoneNum){
-
+    public Victim(ArrayList<String> incidentReport, boolean alive, int phoneNum){
+        super();
+        this.incidentReport = incidentReport;
+        this.alive = alive;
+        this.phoneNum = phoneNum;
     }
 
     public ArrayList<String> getIncidentReport(){
-
+        return this.incidentReport;
     }
 
     public boolean getStatus(){
- 
+        return this.alive;
     }
 
     public int getPhoneNum(){
-        
+        return this.phoneNum;
     }
 }

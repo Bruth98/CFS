@@ -5,30 +5,36 @@ public class Person {
     public String description;
 
     public Person() {
-
+        this.name = "None";
+        this.address = "None";
+        this.dob = 00000000;
+        this.description = "None";
     }
 
     public Person(String name, String address, int dob, String description) {
-
+        this.name = name;
+        this.address = address;
+        this.dob = dob;
+        this.description = description;
     }
 
     public String getName() {
-        return "";
+        return this.name;
     }
 
     public String getAddress() {
-        return "";
+        return this.address;
     }
 
     public int getDOB() {
-        return 0;
+        return this.dob;
     }
 
     public String getDescription() {
-        return "";
+        return this.description;
     }
 
     public String toString() {
-        return "";
+        return "Name: " + this.name + " Address: " + this.address + " DOB: " + this.dob + " Description: " + this.description;
     }
 }

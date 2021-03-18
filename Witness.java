@@ -1,21 +1,25 @@
 import java.util.ArrayList;
-public class Witness {
+public class Witness extends Person{
     private ArrayList<String> incidentReport;
     private boolean relationToVictim;
 
     public Witness(){
-
+        super();
+        this.incidentReport = null;
+        this.relationToVictim = false;
     }
 
-    public Witness(String name, String address, int age, int dob, String description, ArrayList<String> incidentReport, boolean relationToVictim){
-
+    public Witness(ArrayList<String> incidentReport, boolean relationToVictim){
+        super();
+        this.incidentReport = incidentReport;
+        this.relationToVictim = relationToVictim;
     }
 
     public ArrayList<String> getIncidentReport(){
-        return null;
+        return this.incidentReport;
     }
 
     public boolean getRelation(){
-        return false;
+        return this.relationToVictim;
     }
 }
