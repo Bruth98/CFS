@@ -12,15 +12,47 @@ public class DataWriter extends DataConstants {
         for(int i=0; i< persons.size(); i++){
             jsonPerson.add(getPersons(JSON(persons.get(i))));
         }
-
         try(FileWriter file = new FileWriter(PERSON_FILE_NAME)){
             file.write(jsonPerson.toJSONString());
             file.flush();
         }
-        
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject getPersonJSON(Person person){
+        JSONObject personDetails = new JSONObject();
+        personDetails.put(PERSON_NAME, person.getName());
+        personDetails.put(PERSON_ADDRESS, person.getAddress());
+        personDetails.put(PERSON_DESCRIPTION,person.getDescription());
+        personDetails.put(PERSON_DOB, person.getDOB());
+
+        return personDetails;
     }
 
     public void saveUsers(){
-        
+        User user = User.getInstance();
+        ArrayList<User> users = users.getUsers();
+        JSONArray jsonUser = new JSONArray();
+
+        for(int i=0; i< users.size(); i++){
+            jsonUser.add(getUsers(JSON(users.get(i))));
+        }
+        try(FileWriter file = new FileWriter(USER_FILE_NAME)){
+            file.write(jsonUser.toJSONString());
+            file.flush();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject getUserJSON(User user){
+        JSONObject userDetails = new JSONObject();
+        userDetails.put(EMPLOYEE_PASSWORD, user.getPassword());
+        userDetails.put(EMPLOYEE_ID, user.getUserID());
+
+        return userDetails;
     }
 }
