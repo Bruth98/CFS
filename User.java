@@ -32,7 +32,22 @@ public class User {
         return null;
 
     }
+
+    public int getUserID() {
+        return this.employeeID;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
 	public ArrayList<User> getUser() {
+		return null;
+	}
+	public static User getInstance() {
+		return null;
+	}
+	public static User getInstance() {
 		return null;
 	}
 	public static User getInstance() {
