@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class User {
     protected int employeeID;
@@ -40,17 +39,4 @@ public class User {
     public String getPassword() {
         return this.password;
     }
-
-	public ArrayList<User> getUser() {
-		return null;
-	}
-	public static User getInstance() {
-		return null;
-	}
-	public static User getInstance() {
-		return null;
-	}
-	public static User getInstance() {
-		return null;
-	}
 }

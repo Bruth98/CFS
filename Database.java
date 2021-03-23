@@ -5,7 +5,7 @@ public class Database {
     private User currentUser;
     
     public Database() {
-        users = users.getInstance();
+        users = Users.getInstance();
 
     }
 

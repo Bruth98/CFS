@@ -28,7 +28,7 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    public ArrayList<User> getUsers(){
+    public ArrayList<User> loadUsers(){
         ArrayList<User> users = new ArrayList<User>();
         try{
             FileReader reader = new FileReader(USER_FILE_NAME);

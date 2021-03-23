@@ -47,10 +47,10 @@ public class UI {
         displayUsers();
 
         while(addUser()) {
-            userID = getFieldInt("employeeID");
-            password = getField("password");
+            int userID = getFieldInt("employeeID");
+            String password = getField("password");
 
-            User.addUser(userID, password);
+            Users.addUser(userID, password); // Ask about this
         }
 
         System.out.println("***** Your updated list of Users *****")
@@ -122,7 +122,7 @@ public class UI {
         return false;
     }
     public void displayUsers(){
-        User user2 = User.getInstance();
-        ArrayList<User> users = user2.getUser();
+        Users user2 = Users.getInstance(); // ask
+        ArrayList<User> users = user2.getUsers();
     }
 }

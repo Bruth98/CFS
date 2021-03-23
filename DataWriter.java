@@ -32,12 +32,12 @@ public class DataWriter extends DataConstants {
     }
 
     public void saveUsers(){
-        User user = User.getInstance();
-        ArrayList<User> users = users.getUsers();
+        Users users = Users.getInstance();
+        ArrayList<User> user = users.getUsers();
         JSONArray jsonUser = new JSONArray();
 
-        for(int i=0; i< users.size(); i++){
-            jsonUser.add(getUsers(JSON(users.get(i))));
+        for(int i=0; i< user.size(); i++){
+            jsonUser.add(getUsers(JSON(user.get(i))));
         }
         try(FileWriter file = new FileWriter(USER_FILE_NAME)){
             file.write(jsonUser.toJSONString());
