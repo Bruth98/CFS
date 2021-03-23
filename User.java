@@ -38,10 +38,4 @@ public class User {
 	public static User getInstance() {
 		return null;
 	}
-	public static User getInstance() {
-		return null;
-	}
-	public static User getInstance() {
-		return null;
-	}
 }
