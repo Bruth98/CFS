@@ -4,7 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser; //Ask about this error
 public class DataLoader extends DataConstants {
-    public ArrayList<Person> getPersons(){
+    public ArrayList<Person> loadPersons(){
         ArrayList<Person> persons = new ArrayList<Person>();
         try{
             FileReader reader = new FileReader(PERSON_FILE_NAME);
@@ -33,10 +33,10 @@ public class DataLoader extends DataConstants {
         try{
             FileReader reader = new FileReader(USER_FILE_NAME);
             JSONParser parser = new JSONParser();
-            JSONArray userJSON =(JSONArray)new JSONParser().parser(reader);
+            JSONArray userJSON =(JSONArray)new JSONParser().parse(reader);
 
             for(int i =0; i< userJSON.size();i++){
-                JSONObject userJSOB = (JSONObject)userJSON.get(i);
+                JSONObject userJSON = (JSONObject)userJSON.get(i);
                 int employeeID = 00000000;
                 String password = "password";
                 
@@ -48,5 +48,31 @@ public class DataLoader extends DataConstants {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public ArrayList<Admin> loadAdmins(){
+        ArrayList<Admin> admins = new ArrayList<Admin>();
+        try{
+            FileReader reader = new FileReader(ADMIN_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray adminJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(int i = 0; i<adminJSON.size(); i++){
+                JSONObject adminJSON = (JSONObject)adminJSON.get(i);
+                String firstName = "first name";
+                String lastName = "last name";
+
+                admins.add(new Admin(firstName, lastName));
+            }
+            return admins;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Agent> loadAgent(){
+        
     }
 }

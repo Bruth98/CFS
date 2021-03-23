@@ -18,7 +18,7 @@ public class Users {
     public ArrayList<User> getUsers() {
         return userList;
     }
-
+    //add get user by ID
     public boolean addUser(int userID, String password) {
         if(haveUser(userID, password)) {
             return false;
