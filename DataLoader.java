@@ -12,11 +12,11 @@ public class DataLoader extends DataConstants {
             JSONArray personJSON = (JSONArray)new JSONParser().parse(reader);
 
             for(int i=0; i<personJSON.size(); i++){
-                JSONObject personJSON = (JSONObject)personJSON.get(i);
-                String name =(String)personJSON.get(PERSON_NAME);
-                String address = (String)personJSON.get(PERSON_ADDRESS);
-                int dob =(int)personJSON.get(PERSON_DOB);
-                String description = (String)personJSON.get(PERSON_DESCRIPTION);
+                JSONObject personsJSON = (JSONObject)personJSON.get(i);
+                String name =(String)personsJSON.get(PERSON_NAME);
+                String address = (String)personsJSON.get(PERSON_ADDRESS);
+                int dob =(int)personsJSON.get(PERSON_DOB);
+                String description = (String)personsJSON.get(PERSON_DESCRIPTION);
 
                 persons.add(new Person(name, address, dob, description));
             }
@@ -36,9 +36,9 @@ public class DataLoader extends DataConstants {
             JSONArray userJSON =(JSONArray)new JSONParser().parse(reader);
 
             for(int i =0; i< userJSON.size();i++){
-                JSONObject userJSON = (JSONObject)userJSON.get(i);
-                int employeeID = 00000000;
-                String password = "password";
+                JSONObject usersJSON = (JSONObject)usersJSON.get(i);
+                int employeeID = (int)usersJSON.get(EMPLOYEE_ID);
+                String password = (String)usersJSON.get(EMPLOYEE_PASSWORD);
                 
                 users.add(new User(employeeID, password));
             }
@@ -58,9 +58,9 @@ public class DataLoader extends DataConstants {
             JSONArray adminJSON = (JSONArray)new JSONParser().parse(reader);
 
             for(int i = 0; i<adminJSON.size(); i++){
-                JSONObject adminJSON = (JSONObject)adminJSON.get(i);
-                String firstName = "first name";
-                String lastName = "last name";
+                JSONObject adminsJSON = (JSONObject)adminJSON.get(i);
+                String firstName = (String)adminsJSON.get(ADMIN_FIRST_NAME);
+                String lastName = (String)adminsJSON.get(ADMIN_LAST_NAME);
 
                 admins.add(new Admin(firstName, lastName));
             }
@@ -72,7 +72,20 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    public ArrayList<Agent> loadAgent(){
-        
+    public ArrayList<Crime> loadCrime(){
+        ArrayList<Crime> crimes = new ArrayList<Crime>();
+        try{
+            FileReader reader = new FileReader(CRIME_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray crimeJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(int i=0; i<crimeJSON.size(); i++){
+                JSONObject crimesJSON = (JSONObject)crimeJSON.get(i);
+                String type = (String)crimesJSON.get(CRIME_TYPE);
+                boolean felony =(boolean)crimesJSON.get(CRIME_FELONY);
+
+                crimes.add(type, felony);
+            }
+        }
     }
 }
