@@ -3,6 +3,7 @@ public abstract class DataConstants {
     protected static final String USER_FILE_NAME = "src/User.json";
     protected static final String ADMIN_FILE_NAME = "src/Admin.json";
     protected static final String CRIME_FILE_NAME = "src/Crime.json";
+    protected static final String EVIDENCE_FILE_NAME = "src/Evidence.json";
     protected static final String PERSON_NAME = "name";
     protected static final String PERSON_ADDRESS = "address";
     protected static final String PERSON_DESCRIPTION = "description";
@@ -10,7 +11,12 @@ public abstract class DataConstants {
     protected static final String ADMIN_FIRST_NAME = "first name";
     protected static final String ADMIN_LAST_NAME = "last name";
     protected static final String CRIME_TYPE = "type";
+    protected static final String EVIDENCE_DESCRIPTION = "description";
+    protected static final String EVIDENCE_LOACTION = "Loacation";
+    protected static final boolean EVIDENCE_WEAPON = false;
+    protected static final boolean EVIDENCE_DRUGS = false;
     protected static final boolean CRIME_FELONY = false;
+    protected static final boolean EVIDENCE_FINGERPRINTS = false;
     protected static final int PERSON_DOB = 00000000;
     protected static final int EMPLOYEE_ID = 00000000;
    

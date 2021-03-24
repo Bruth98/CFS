@@ -8,6 +8,10 @@ public class Evidence {
     private String location;
     private ArrayList<String> witnesses;
 
+
+    public Evidence(String description, String location, boolean weapon, boolean drugs, boolean fingerprints){
+
+    }
     public String getDescription(){
         return "";
     }

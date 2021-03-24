@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.io.FileReader;
+import java.io.IOException;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser; //Ask about this error
@@ -84,8 +86,38 @@ public class DataLoader extends DataConstants {
                 String type = (String)crimesJSON.get(CRIME_TYPE);
                 boolean felony =(boolean)crimesJSON.get(CRIME_FELONY);
 
-                crimes.add(type, felony);
+                crimes.add(new Crime(type, felony));
             }
+            return crimes;
         }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Evidence> loadEvidence(){
+        ArrayList<Evidence> evidences = new ArrayList<Evidence>();
+        try{
+            FileReader reader = new FileReader(EVIDENCE_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray evidenceJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(int i=0; i<evidenceJSON.size(); i++){
+                JSONObject evidencesJSON = (JSONObject)evidenceJSON.get(i);
+                String description = (String)evidencesJSON.get(EVIDENCE_DESCRIPTION);
+                String location = (String)evidencesJSON.get(EVIDENCE_LOACTION);
+                boolean weapon = (boolean)evidencesJSON.get(EVIDENCE_WEAPON);
+                boolean drugs = (boolean)evidencesJSON.get(EVIDENCE_DRUGS);
+                boolean fingerprints=(boolean)evidencesJSON.get(EVIDENCE_FINGERPRINTS);
+
+                evidences.add(new Evidence(description, location, weapon, drugs, fingerprints));
+            }
+            return evidences;
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }
