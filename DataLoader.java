@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser; //Ask about this error
+import org.json.simple.parser.ParseException;
 public class DataLoader extends DataConstants {
     public ArrayList<Person> loadPersons(){
         ArrayList<Person> persons = new ArrayList<Person>();
@@ -90,7 +91,7 @@ public class DataLoader extends DataConstants {
             }
             return crimes;
         }
-        catch(IOException e){
+        catch(Exception e){
             e.printStackTrace();
         }
         return null;
@@ -115,9 +116,83 @@ public class DataLoader extends DataConstants {
             }
             return evidences;
         }
-        catch(IOException e){
+        catch(Exception e){
+            e.printStackTrace();
+        } 
+        return null;
+    }
+
+    public ArrayList<Officer> loadOfficer(){
+        ArrayList<Officer> officers = new ArrayList<Officer>();
+        try{
+            FileReader reader = new FileReader(OFFICER_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray officerJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(int i=0; i<officerJSON.size(); i++){
+                JSONObject officersJSON = (JSONObject)officerJSON.get(i);
+                String firstName = (String)officersJSON.get(OFFICER_FIRST_NAME);
+                String lastName = (String)officersJSON.get(OFFICER_LAST_NAME);
+                String department = (String)officersJSON.get(OFFICER_DEPARTMENT);
+
+                officers.add(new Officer(firstName, lastName, department));
+            }
+            return officers;
+        }
+        catch(Exception e){
             e.printStackTrace();
         }
         return null;
+    }
+
+    public ArrayList<Suspect> loadSuspect(){
+        ArrayList<Suspect> suspect = new ArrayList<Suspect>();
+        try{
+            FileReader reader = new FileReader(SUSPECT_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray suspectJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(int i=0; i<suspectJSON.size(); i++){
+                JSONObject suspectsJSON = (JSONObject)suspectJSON.get(i);
+                String gender = (String)suspectsJSON.get(SUSPECT_GENDER);
+                String race = (String)suspectsJSON.get(SUSPECT_RACE);
+                String hairColor = (String)suspectsJSON.get(SUSPECT_HAIR_COLOR);
+                double height =(double)suspectsJSON.get(SUSPECT_HEIGHT);
+                double weight = (double)suspectsJSON.get(SUSPECT_WEIGHT);
+                boolean tattoo = (boolean)suspectsJSON.get(SUSPECT_TATTOO);
+                boolean criminalRecord = (boolean)suspectsJSON.get(SUSPECT_CRIMINAL_RECORD);
+
+                suspect.add(new Suspect(gender, race, hairColor, height, weight, tattoo, criminalRecord));
+
+            }
+
+            return suspect;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Victim> loadVictim(){
+        ArrayList<Victim> victim = new ArrayList<Victim>();
+        try{
+            FileReader reader = new FileReader(VICTIM_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray victimJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(int i=0; i<victimJSON.size(); i++){
+                JSONObject victimsJSON = (JSONObject)victimJSON.get(i);
+                int phoneNum = (int)victimsJSON.get(VICTIM_PHONE_NUMBER);
+                boolean alive = (boolean)victimsJSON.get(VICTIM_ALIVE);
+
+                victim.add(new Victim(phoneNum, alive));
+            }
+            return victim;
+            catch(Exception e){
+                e.printStackTrace();
+            }
+            return null;
+        }
     }
 }

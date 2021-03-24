@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class Suspect extends PersonOfIneterst{
     public ArrayList<String> family;
 
-    public Suspect() {
+    public Suspect(String gender,String race, String hairColor,double height,double weight,boolean tattoo,boolean criminalRecord) {
         super();
         this.family = null;
     }
