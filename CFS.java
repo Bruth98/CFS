@@ -1,7 +1,10 @@
 public class CFS {
     private Users users;
     private Cases cases;
-    private evidenceList evidence;
+    private Suspects suspects;
+    private EvidenceList evidence;
+    private Witnesses witnesses;
+    private Victims victims;
     private User currentUser;
     
     public CFS() {
