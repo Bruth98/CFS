@@ -35,7 +35,13 @@ public class Users {
         }
         return false;
     }
-
+    public User getUser(int userID){
+        for (User user : userList) {
+            if(user.getUserID() == userID)
+                return user;
+        }
+        return null;
+    }
     public void saveUsers() {
         DataWriter.saveUsers(); //Same as load
     }

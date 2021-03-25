@@ -211,7 +211,8 @@ public class DataLoader extends DataConstants {
                 int caseID =(int)casesJSON.get(CASE_ID);
                 String date = (String)casesJSON.get(CASE_DATE);
                 String location = (String)casesJSON.get(CASE_LOCATION);
-
+                JSONArray agentIDS = (JSONArray)casesJSON.get("data constant");
+                ArrayList<User> users = getUsers(agentIDS);
                 case2.add(new Case(caseID, date, location));
             }
 
@@ -224,6 +225,15 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    private static ArrayList<User> getUsers(JSONArray UserIDS){
+        ArrayList<User> users = new ArrayList<User>();
+        for(int i=0; i< UserIDS.size(); i++){
+            int userID = ((Long)UserIDS.get(i)).intValue();
+            User user = Users.getInstance().getUser(userID);
+            users.add(user);
+        }
+        return users;
+    }
     public static ArrayList<Witness> loadWitnesses(){
         ArrayList<Witness> witness = new ArrayList<Witness>();
         try{
