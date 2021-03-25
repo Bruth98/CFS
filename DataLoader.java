@@ -7,7 +7,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser; //Ask about this error
 import org.json.simple.parser.ParseException;
 public class DataLoader extends DataConstants {
-    public ArrayList<Person> loadPersons(){
+    public static ArrayList<Person> loadPersons(){
         ArrayList<Person> persons = new ArrayList<Person>();
         try{
             FileReader reader = new FileReader(PERSON_FILE_NAME);
@@ -31,7 +31,7 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    public ArrayList<User> loadUsers(){
+    public static ArrayList<User> loadUsers(){
         ArrayList<User> users = new ArrayList<User>();
         try{
             FileReader reader = new FileReader(USER_FILE_NAME);
@@ -53,7 +53,7 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    public ArrayList<Admin> loadAdmins(){
+    public static ArrayList<Admin> loadAdmins(){
         ArrayList<Admin> admins = new ArrayList<Admin>();
         try{
             FileReader reader = new FileReader(ADMIN_FILE_NAME);
@@ -75,7 +75,7 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    public ArrayList<Crime> loadCrime(){
+    public static ArrayList<Crime> loadCrime(){
         ArrayList<Crime> crimes = new ArrayList<Crime>();
         try{
             FileReader reader = new FileReader(CRIME_FILE_NAME);
@@ -97,7 +97,7 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    public ArrayList<Evidence> loadEvidence(){
+    public static ArrayList<Evidence> loadEvidence(){
         ArrayList<Evidence> evidences = new ArrayList<Evidence>();
         try{
             FileReader reader = new FileReader(EVIDENCE_FILE_NAME);
@@ -122,7 +122,7 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    public ArrayList<Officer> loadOfficer(){
+    public static ArrayList<Officer> loadOfficer(){
         ArrayList<Officer> officers = new ArrayList<Officer>();
         try{
             FileReader reader = new FileReader(OFFICER_FILE_NAME);
@@ -173,7 +173,7 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    public ArrayList<Victim> loadVictim(){
+    public static ArrayList<Victim> loadVictim(){
         ArrayList<Victim> victim = new ArrayList<Victim>();
         try{
             FileReader reader = new FileReader(VICTIM_FILE_NAME);
@@ -195,11 +195,29 @@ public class DataLoader extends DataConstants {
             return null;
     }
 
-    public static void main(String[] args){
-        ArrayList<Suspect> suspects = DataLoader.loadSuspect();
-        for(int i = 0; i<suspects.size(); i++){
-            System.out.println(suspects.get(i));
+    public ArrayList<Case> loadCase(){
+        ArrayList<Case> case2 = new ArrayList<Case>();
+        try{
+            FileReader reader = new FileReader(CASE_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray caseJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(int i=0; i<caseJSON.size(); i++){
+                JSONObject casesJSON = (JSONObject)casesJSON.get(i);
+                int caseID =(int)casesJSON.get(CASE_ID);
+                String date = (String)casesJSON.get(CASE_DATE);
+                String location = (String)casesJSON.get(CASE_LOCATION);
+
+                case2.add(new Case(caseID, date, location));
+            }
+
+            return case2;
         }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }
 

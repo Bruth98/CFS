@@ -7,6 +7,7 @@ public abstract class DataConstants {
     protected static final String OFFICER_FILE_NAME = "Officer.json";
     protected static final String SUSPECT_FILE_NAME = "Suspect.json";
     protected static final String VICTIM_FILE_NAME = "Victim.json";
+    protected static final String CASE_FILE_NAME = "Case.json"
     protected static final String PERSON_NAME = "name";
     protected static final String PERSON_ADDRESS = "address";
     protected static final String PERSON_DESCRIPTION = "description";
@@ -22,6 +23,8 @@ public abstract class DataConstants {
     protected static final String SUSPECT_GENDER = "gender";
     protected static final String SUSPECT_RACE = "race";
     protected static final String SUSPECT_HAIR_COLOR = "hair color";
+    protected static final String CASE_DATE = "date";
+    protected static final String CASE_LOCATION = "location";
     protected static final boolean SUSPECT_TATTOO = true;
     protected static final boolean SUSPECT_CRIMINAL_RECORD = true;
     protected static final boolean EVIDENCE_WEAPON = false;
@@ -32,6 +35,7 @@ public abstract class DataConstants {
     protected static final int PERSON_DOB = 00000000;
     protected static final int EMPLOYEE_ID = 00000000;
     protected static final int VICTIM_PHONE_NUMBER = 00000000;
+    protected static final int CASE_ID = 00000000;
     protected static final double SUSPECT_HEIGHT = 0000.0000;
     protected static final double SUSPECT_WEIGHT = 0000.0000;
    

@@ -218,7 +218,32 @@ public class DataWriter extends DataConstants {
       
         return victimDetails;
     }
-    public static void main(String[] args){
-        DataWriter.saveUsers();
+
+    public static void saveCase(){
+        Cases cases = Cases.getInstance();
+        ArrayList<Case> case2 = cases.getCase();
+        JSONArray jsonCase = new JSONArray();
+
+        for(int i=0; i<case2.size(); i++){
+            jsonCase.add(getCaseJSON(case2.get(i)));
+        }
+        try(FileWriter file = new FileWriter(CASE_FILE_NAME)){
+            file.write(jsonCase.toJSONString());
+            file.flush();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
     }
+
+    public static JSONObject getCaseJSON(CASE case2){
+        JSONObject caseDetails = new JSONObject();
+        caseDetails.put(CASE_ID, case2.getCaseID());
+        caseDetails.put(CASE_DATE, case2.getCaseDate());
+        caseDetails.put(CASE_LOCATION, case2.getCaseLocation());
+        
+      
+        return caseDetails;
+    }
+
 }
