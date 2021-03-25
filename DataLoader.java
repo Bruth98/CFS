@@ -185,14 +185,14 @@ public class DataLoader extends DataConstants {
                 int phoneNum = (int)victimsJSON.get(VICTIM_PHONE_NUMBER);
                 boolean alive = (boolean)victimsJSON.get(VICTIM_ALIVE);
 
-                victim.add(new Victim(phoneNum, alive));
+                victim.add(new Victim(alive, phoneNum));
             }
-            return victim;
+                return victim;
+        }
             catch(Exception e){
                 e.printStackTrace();
             }
             return null;
-        }
     }
 
     public static void main(String[] args){
@@ -202,3 +202,4 @@ public class DataLoader extends DataConstants {
         }
     }
 }
+

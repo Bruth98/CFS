@@ -11,17 +11,17 @@ public class Victim extends Person{
         this.phoneNum = 0000000000;
     }
 
-    public Victim(ArrayList<String> incidentReport, boolean alive, int phoneNum){
+    public Victim(boolean alive, int phoneNum){
         super();
-        this.incidentReport = incidentReport;
+        //this.incidentReport = incidentReport;
         this.alive = alive;
         this.phoneNum = phoneNum;
     }
-
+/*
     public ArrayList<String> getIncidentReport(){
         return this.incidentReport;
     }
-
+*/
     public boolean getStatus(){
         return this.alive;
     }

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Users {
     private static Users users = null;
-    private static ArrayList<User> userList = new ArrayList<User>();
+    private static ArrayList<User> userList;
     
     private Users() {
         userList = DataLoader.loadUsers(); //Try to fix and if not done ask in meeting
