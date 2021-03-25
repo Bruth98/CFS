@@ -4,7 +4,7 @@ public class Cases {
     private static ArrayList<Case> caseList;
     
     private Cases() {
-        caseList = DataLoader.loadCrime(); //Try to fix and if not done ask in meeting
+        caseList = DataLoader.loadCase();
     }
 
     public static Cases getInstance() {
@@ -19,9 +19,9 @@ public class Cases {
     }
 
     public Case getCase(int caseID) {
-        for (Case case : caseList) {
-            if (case.getCaseID() == (caseID)) {
-                return case;
+        for (Case case2 : caseList) {
+            if (case2.getCaseID() == (caseID)) {
+                return case2;
             }
         }
         return null;
@@ -37,8 +37,8 @@ public class Cases {
     }
 
     public boolean haveCase(int caseID) {
-        for (Case case : caseList) {
-            if (case.getCaseID() == caseID) {
+        for (Case case2 : caseList) {
+            if (case2.getCaseID() == caseID) {
                 return true;
             }
         }
@@ -46,7 +46,7 @@ public class Cases {
     }
 
     public void saveUsers() {
-        DataWriter.saveUsers(); //Same as load
+        DataWriter.saveUsers(); 
     }
 }
 

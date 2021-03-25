@@ -4,7 +4,7 @@ public class Victims {
     private static ArrayList<Victim> victimList;
     
     private Victims() {
-        victimList = DataLoader.loadVictims(); //Try to fix and if not done ask in meeting
+        victimList = DataLoader.loadVictim(); 
     }
 
     public static Victims getInstance() {
@@ -36,6 +36,6 @@ public class Victims {
     }
 
     public void saveVictim() {
-        DataWriter.saveVictim(); //Same as load
+        DataWriter.saveVictims(); 
     }
 }

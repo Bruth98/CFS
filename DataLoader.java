@@ -199,7 +199,7 @@ public class DataLoader extends DataConstants {
             return null;
     }
 
-    public ArrayList<Case> loadCase(){
+    public static ArrayList<Case> loadCase(){
         ArrayList<Case> case2 = new ArrayList<Case>();
         try{
             FileReader reader = new FileReader(CASE_FILE_NAME);
@@ -224,7 +224,7 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    public ArrayList<Witness> loadWitnesses(){
+    public static ArrayList<Witness> loadWitnesses(){
         ArrayList<Witness> witness = new ArrayList<Witness>();
         try{
             FileReader reader = new FileReader(WITNESS_FILE_NAME);
