@@ -60,8 +60,53 @@ public class DataWriter extends DataConstants {
     public static void saveAdmins(){
         Admins admins = Admins.getInstance();
         ArrayList<Admin> admin = admins.getAdmins();
-        
-    } 
+        JSONArray jsonAdmin = new JSONArray();
+
+        for(int i=0; i<admin.size(); i++){
+            jsonAdmin.add(getAdminJSON(admin.get(i)));
+        }
+        try(FileWriter file = new FileWriter(ADMIN_FILE_NAME)){
+            file.write(jsonAdmin.toJSONString());
+            file.flush();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject getAdminJSON(Admin admin){
+        JSONObject adminDetails = new JSONObject();
+        adminDetails.put(ADMIN_FIRST_NAME, admin.getFirstName());
+        adminDetails.put(ADMIN_LAST_NAME, admin.getFirstName());
+
+        return adminDetails;
+    }
+
+
+    public static void saveCrimes(){
+        Crimes crimes = Crimes.getInstance();
+        ArrayList<Crime> crime = crimes.getCrimes();
+        JSONArray jsonCrime = new JSONArray();
+
+        for(int i=0; i<crime.size(); i++){
+            jsonCrime.add(getCrimeJSON(crime.get(i)));
+        }
+        try(FileWriter file = new FileWriter(CRIME_FILE_NAME)){
+            file.write(jsonCrime.toJSONString());
+            file.flush();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject getCrimeJSON(Crime crime){
+        JSONObject crimeDetails = new JSONObject();
+        crimeDetails.put(CRIME_TYPE, crime.getType());
+        crimeDetails.put(CRIME_FELONY, crime.getFelony());
+
+        return crimeDetails;
+    }
     public static void main(String[] args){
         DataWriter.saveUsers();
     }
