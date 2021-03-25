@@ -214,6 +214,10 @@ public class DataWriter extends DataConstants {
         JSONObject victimDetails = new JSONObject();
         victimDetails.put(VICTIM_ALIVE, victim.getAlive());
         victimDetails.put(VICTIM_PHONE_NUMBER, victim.getPhoneNum());
+        victimDetails.put(VICTIM_ADDRESS, victim.getAddress());
+        victimDetails.put(VICTIM_NAME, victim.getName());
+        victimDetails.put(VICTIM_DESCRIPTION, victim.getDescription());
+        victimDetails.put(VICTIM_DOB, victim.getDOB());
         
       
         return victimDetails;
@@ -236,7 +240,7 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    public static JSONObject getCaseJSON(CASE case2){
+    public static JSONObject getCaseJSON(Case case2){
         JSONObject caseDetails = new JSONObject();
         caseDetails.put(CASE_ID, case2.getCaseID());
         caseDetails.put(CASE_DATE, case2.getCaseDate());
@@ -244,6 +248,35 @@ public class DataWriter extends DataConstants {
         
       
         return caseDetails;
+    }
+
+    public static void saveWitness(){
+        Witnesses witnesses = Witnesses.getInstance();
+        ArrayList<Witness> witness = witnesses.getCase();
+        JSONArray jsonWitness = new JSONArray();
+
+        for(int i=0; i<witness.size(); i++){
+            jsonWitness.add(getWitnessJSON(witness.get(i)));
+        }
+        try(FileWriter file = new FileWriter(WITNESS_FILE_NAME)){
+            file.write(jsonWitness.toJSONString());
+            file.flush();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject getWitnessJSON(Witness witness){
+        JSONObject witnessDetails = new JSONObject();
+        witnessDetails.put(WITNESS_ADDRESS, witness.getAddress());
+        witnessDetails.put(WITNESS_DESCRIPTION, witness.getDescription());
+        witnessDetails.put(WITNESS_DOB, witness.getDOB());
+        witnessDetails.put(WITNESS_NAME, witness.getName());
+        witnessDetails.put(WITNESS_RELATION_TO_VICTIM, witness.getRelation());
+        
+      
+        return witnessDetails;
     }
 
 }

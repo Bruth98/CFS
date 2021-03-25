@@ -182,10 +182,14 @@ public class DataLoader extends DataConstants {
 
             for(int i=0; i<victimJSON.size(); i++){
                 JSONObject victimsJSON = (JSONObject)victimJSON.get(i);
+                String name = (String)victimJSON.get(VICTIM_NAME);
+                String address = (String)victimJSON.get(VICTIM_ADDRESS);
+                String description = (String)victimJSON.get(VICTIM_DESCRIPTION);
+                int dob = (int)victimJSON.get(VICTIM_DOB);
                 int phoneNum = (int)victimsJSON.get(VICTIM_PHONE_NUMBER);
                 boolean alive = (boolean)victimsJSON.get(VICTIM_ALIVE);
-
-                victim.add(new Victim(alive, phoneNum));
+                //needs IncidentReport array
+                victim.add(new Victim(name, address, dob, description, alive, phoneNum));
             }
                 return victim;
         }
@@ -217,6 +221,31 @@ public class DataLoader extends DataConstants {
             e.printStackTrace();
         }
 
+        return null;
+    }
+
+    public ArrayList<Witness> loadWitnesses(){
+        ArrayList<Witness> witness = new ArrayList<Witness>();
+        try{
+            FileReader reader = new FileReader(WITNESS_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray witnessJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(int i =0; i<witnessJSON.size(); i++){
+                JSONObject witnessesJSON = (JSONObject)witnessesJSON.get(i);
+                String name = (String)witnessesJSON.get(WITNESS_NAME);
+                String address = (String)witnessesJSON.get(WITNESS_NAME);
+                String description = (String)witnessesJSON.get(WITNESS_DESCRIPTION);
+                int dob = (int)witnessesJSON.get(WITNESS_DOB);
+                boolean relationToVictim = (boolean)witnessesJSON.get(WITNESS_RELATION_TO_VICTIM);
+
+                witness.add(name, address, description, dob, relationToVictim);
+            }
+            return witness;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 }
