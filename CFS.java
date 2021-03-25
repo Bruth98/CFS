@@ -37,8 +37,8 @@ public class CFS {
         return evidence.haveKeyword(keyword);
     }
 
-    public boolean getSuspects(String firstName, String lastName) {
-        return suspects.haveName(firstName, lastName);
+    public boolean getSuspects(String name, int dob) {
+        return suspects.haveSuspect(name, dob);
     }
 
     public boolean getCriminal(String firstName, String lastName) {
