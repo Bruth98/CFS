@@ -31,13 +31,14 @@ public class DataWriter extends DataConstants {
         return personDetails;
     }
 
-    public void saveUsers(){
+    public static void saveUsers(){
         Users users = Users.getInstance();
         ArrayList<User> user = users.getUsers();
+        
         JSONArray jsonUser = new JSONArray();
-
+        
         for(int i=0; i< user.size(); i++){
-            jsonUser.add(getUsers(JSON(user.get(i))));
+            jsonUser.add(getUserJSON(user.get(i)));
         }
         try(FileWriter file = new FileWriter(USER_FILE_NAME)){
             file.write(jsonUser.toJSONString());
@@ -54,5 +55,14 @@ public class DataWriter extends DataConstants {
         userDetails.put(EMPLOYEE_ID, user.getUserID());
 
         return userDetails;
+    }
+
+    public static void saveAdmins(){
+        Admins admins = Admins.getInstance();
+        ArrayList<Admin> admin = admins.getAdmins();
+        
+    } 
+    public static void main(String[] args){
+        DataWriter.saveUsers();
     }
 }

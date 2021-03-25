@@ -16,4 +16,7 @@ public class Suspect extends PersonOfIneterst{
         return this.family;
     }
     
+    public String toString(){
+        return "hello";
+    }
 }

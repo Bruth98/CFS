@@ -1,12 +1,12 @@
 public abstract class DataConstants {
-    protected static final String PERSON_FILE_NAME = "src/Person.json";
-    protected static final String USER_FILE_NAME = "src/User.json";
-    protected static final String ADMIN_FILE_NAME = "src/Admin.json";
-    protected static final String CRIME_FILE_NAME = "src/Crime.json";
-    protected static final String EVIDENCE_FILE_NAME = "src/Evidence.json";
-    protected static final String OFFICER_FILE_NAME = "src/Officer.json";
-    protected static final String SUSPECT_FILE_NAME = "src/Suspect.json";
-    protected static final String VICTIM_FILE_NAME = "src/Victim.json";
+    protected static final String PERSON_FILE_NAME = "Person.json";
+    protected static final String USER_FILE_NAME = "User.json";
+    protected static final String ADMIN_FILE_NAME = "Admin.json";
+    protected static final String CRIME_FILE_NAME = "Crime.json";
+    protected static final String EVIDENCE_FILE_NAME = "Evidence.json";
+    protected static final String OFFICER_FILE_NAME = "Officer.json";
+    protected static final String SUSPECT_FILE_NAME = "Suspect.json";
+    protected static final String VICTIM_FILE_NAME = "Victim.json";
     protected static final String PERSON_NAME = "name";
     protected static final String PERSON_ADDRESS = "address";
     protected static final String PERSON_DESCRIPTION = "description";

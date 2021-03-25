@@ -145,7 +145,7 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    public ArrayList<Suspect> loadSuspect(){
+    public static ArrayList<Suspect> loadSuspect(){
         ArrayList<Suspect> suspect = new ArrayList<Suspect>();
         try{
             FileReader reader = new FileReader(SUSPECT_FILE_NAME);
@@ -161,7 +161,6 @@ public class DataLoader extends DataConstants {
                 double weight = (double)suspectsJSON.get(SUSPECT_WEIGHT);
                 boolean tattoo = (boolean)suspectsJSON.get(SUSPECT_TATTOO);
                 boolean criminalRecord = (boolean)suspectsJSON.get(SUSPECT_CRIMINAL_RECORD);
-
                 suspect.add(new Suspect(gender, race, hairColor, height, weight, tattoo, criminalRecord));
 
             }
@@ -193,6 +192,13 @@ public class DataLoader extends DataConstants {
                 e.printStackTrace();
             }
             return null;
+        }
+    }
+
+    public static void main(String[] args){
+        ArrayList<Suspect> suspects = DataLoader.loadSuspect();
+        for(int i = 0; i<suspects.size(); i++){
+            System.out.println(suspects.get(i));
         }
     }
 }
