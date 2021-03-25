@@ -5,18 +5,36 @@ import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
 import java.util.ArrayList;
 public class UI {
     private String[] mainMenu = {"Create Account", "Login", "Get Cases", "Get Suspects", "Get Witnesses", "Get Victims"};
-    Scanner keyboard = new Scanner(System.in);
+    private Scanner keyboard;
+    private CFS cfs;
+    private boolean loggedIn = false;
+
+    UI() {
+        keyboard = new Scanner(System.in);
+        cfs = new CFS();
+    }
+
     public static void main(String[] args) {
         UI Ui = new UI();
         Ui.play();
     }
 
-    public void play(){
-        boolean loggedIn = false;
-        Users users = Users.getInstance();
+    public void play() {
         System.out.println("****************************************");
         System.out.println("Welcome to Crime Fighter Software!");
         displayMainMenu();
+        int userCommand = getUserCommand(mainMenu.length);
+
+        if (userCommand == -1) {
+            System.out.println("Not a valid choice.");
+            continue;
+        }
+        
+        if (userCommand == (mainMenu.length - 1) {
+            cfs.logout();
+            break;
+        }
+
         while (true) {
             System.out.println("What do you want to do?");
             int choice = keyboard.nextInt();
@@ -71,56 +89,62 @@ public class UI {
     }
 
     /*
+    Take in User input
+    */
+    private int getUserCommand(int numCommands) {
+        System.out.println("What would you like to do? ");
+        String input = keyboard.nextLine();
+        int command = Integer.parseInt(input) - 1;
+
+        if (command >= 0 && command <= numCommands - 1) {
+            return command;
+        }
+        return -1;
+    } 
+
+    /*
     Create Account
     */
     public void createAccount() {
         int userID = getFieldInt("userID");
         String password = getField("password");
-
+        if (cfs.createAccount(userID, password)) {
+            System.out.println("You have successfully created an account.");
+        }
+        else {
+            System.out.println("Sorry, that user already exists.");
+        }
     }
 
     /*
     Login
     */
     public void login() {
-        System.out.println("Please enter your User ID: ");
-        int userID = keyboard.nextInt();
-
-        System.out.println("Please enter your Password: ");
-        String password = keyboard.next();
-
-        System.out.println("****************************************");
-        System.out.println(userID);
-        System.out.println(password);
-    
-        /*
-        Searching the list of Users for a matching userID and password. I can't 
-        figure out why I can't use a for each loop here 
-        */
-        for (User user : users) {
-            if (userID == user.getUserID() && password.equals(user.getPassword())) {
-                loggedIn = true;
-            }
+        int userID = getFieldInt("User ID");
+        String password = getField("Password");
+        if (cfs.login(userID, password)) {
+            loggedIn = true;
         }
     }
+
+    /*
+    Gets each String field
+    */
     private String getField(String prompt) {
 
         System.out.print(prompt + ": ");
         return keyboard.next();
     }
+
+    /*
+    Gets each int field
+    */
     private int getFieldInt(String prompt) {
 
         System.out.print(prompt + ": ");
         return keyboard.nextInt();
     }
-    private boolean addUser() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.print("Would you like to add a User? (Y or N):");
 
-        String input = keyboard.next();
-        if(input.toLowerCase().trim().equals("y")) return true;
-        return false;
-    }
     public void displayUsers(){
         Users user2 = Users.getInstance(); // ask
         ArrayList<User> users = user2.getUsers();
