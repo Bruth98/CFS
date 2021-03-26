@@ -6,12 +6,12 @@ public class Suspect extends PersonOfIneterst{
         super();
         this.family = null;
     }
-
+    /*
     public Suspect(String gender,String race, String hairColor,double height,double weight,boolean tattoo,boolean criminalRecord, ArrayList<String> family) {
         super();
         this.family = family;
     }
-
+    */
     public Suspect(ArrayList<String> family) {
         super();
         this.family = family;

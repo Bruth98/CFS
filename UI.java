@@ -75,7 +75,8 @@ public class UI {
    
         System.out.println("***** Users Online *****");
         displayUsers();
-
+        }
+        /*
         while(addUser()) {
             int userID = getFieldInt("employeeID");
             String password = getField("password");
@@ -87,6 +88,7 @@ public class UI {
         displayUsers();
 
         System.out.println("\nHave a good day!")
+        */
     }
 
     /*
@@ -117,7 +119,7 @@ public class UI {
     /*
     Create Account
     */
-    public void createAccount() {
+    private void createAccount() {
         int userID = getFieldInt("userID");
         String password = getField("password");
         if (cfs.createAccount(userID, password)) {
@@ -131,11 +133,44 @@ public class UI {
     /*
     Login
     */
-    public void login() {
+    private void login() {
         int userID = getFieldInt("User ID");
         String password = getField("Password");
         if (cfs.login(userID, password)) {
             loggedIn = true;
+        }
+    }
+
+    /*
+    Get all Cases
+    */
+
+    private void getCases() {
+        System.out.println("Searching Cases");
+        int caseID = getCaseID();
+        if (caseID == 0) { 
+            return;
+        }
+        
+
+    }
+
+    /*
+    Find Specific Case
+    */
+    private int getCaseID() {
+        System.out.println("Enter Case ID: ");
+        while (true) {
+            int caseID = keyboard.nextInt();
+            if (caseID > 0) {
+                return caseID;
+            }
+            System.out.println("Please enter a valid Case ID.");
+            System.out.println("Would you like to try again? Please enter \"y\" or \"n\"");
+            String ans = keyboard.nextLine();
+            if (ans == "n") {
+                return 0;
+            }
         }
     }
 
