@@ -4,7 +4,7 @@ import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
 
 import java.util.ArrayList;
 public class UI {
-    private String[] mainMenu = {"Create Account", "Login", "Get Cases", "Get Suspects", "Get Witnesses", "Get Victims"};
+    private String[] mainMenu = {"Create Account", "Login", "Get Cases", "Add Case", "Get Suspects", "Add Suspect", "Get Witnesses", "Add Witness", "Get Victims", "Add Victims", "Log Out"};
     private Scanner keyboard;
     private CFS cfs;
     private boolean loggedIn = false;
@@ -39,23 +39,35 @@ public class UI {
             System.out.println("What do you want to do?");
             int choice = keyboard.nextInt();
             switch (choice) {
-                case(0):
+                case(0):  // Create Account
                     createAccount();
                     break;
-                case(1):
+                case(1):  // Login
                     login();
                     break;
-                case(2):
+                case(2):  // Get all Cases
                     getCases();
                     break;
-                case(3):
+                case(3):  // Add a Case
+                    addCase();  // needs to be added
+                    break;
+                case(4):  // Get all Suspects
                     getSuspects();
                     break;
-                case(4):
+                case(5):  // Add a Suspect to a Case
+                    addSuspects();  // needs to be added
+                    break;
+                case(6):  // Get all Witnesses for a Case
                     getWitnesses();
                     break;
-                case(5):
+                case(7):  // Add a Witness to a Case
+                    addWitness();  // needs to be added
+                    break;
+                case(8):  // Get all Victims for a Case
                     getVictims();
+                    break;
+                case(9):  // Add a Victim to a Case
+                    addVictims();  // needs to be added
                     break;
             }
 
