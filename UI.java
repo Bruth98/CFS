@@ -53,6 +53,10 @@ public class UI {
                     break;
                 case(4):  // Get all Suspects (Going to need one that allows searches for tattooDescripton, one for age, one for hair color, and one for height.)
                     getSuspects();  // maybe ask how they want to search inside of this method, then call the specific search inside of here.
+                    /*
+                    Clarification: After looking at the scenarios it actually seems like
+                                   we need a getSuspect(tattooDescription) and a getSuspect(age, haircare, height).
+                    ALSO: In no scenarios do we need to add a suspect, so if we just load in JSON files, do we even need an addSuspect method?
                     break;
                 case(5):  // Add a Suspect to a Case
                     addSuspects();  // needs to be added
