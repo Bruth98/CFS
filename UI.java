@@ -57,6 +57,7 @@ public class UI {
                     Clarification: After looking at the scenarios it actually seems like
                                    we need a getSuspect(tattooDescription) and a getSuspect(age, haircare, height).
                     ALSO: In no scenarios do we need to add a suspect, so if we just load in JSON files, do we even need an addSuspect method?
+                    */
                     break;
                 case(5):  // Add a Suspect to a Case
                     addSuspects();  // needs to be added
