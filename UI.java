@@ -192,6 +192,15 @@ public class UI {
         return keyboard.nextInt();
     }
 
+    /*
+    Gets each double field
+    */
+    private double getFieldDouble(String prompt) {
+
+        System.out.print(prompt + ": ");
+        return keyboard.nextDouble();
+    }
+
     public void displayUsers(){
         Users user2 = Users.getInstance(); // ask
         ArrayList<User> users = user2.getUsers();
