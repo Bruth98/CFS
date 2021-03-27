@@ -51,19 +51,19 @@ public class UI {
                 case(3):  // Add a Case
                     addCase();  // needs to be added
                     break;
-                case(4):  // Get all Suspects
-                    getSuspects();
+                case(4):  // Get all Suspects (Going to need one that allows searches for tattooDescripton, one for age, one for hair color, and one for height.)
+                    getSuspects();  // maybe ask how they want to search inside of this method, then call the specific search inside of here.
                     break;
                 case(5):  // Add a Suspect to a Case
                     addSuspects();  // needs to be added
                     break;
-                case(6):  // Get all Witnesses for a Case
+                case(6):  // Get all Witnesses (
                     getWitnesses();
                     break;
                 case(7):  // Add a Witness to a Case
                     addWitness();  // needs to be added
                     break;
-                case(8):  // Get all Victims for a Case
+                case(8):  // Get all Victims (we're gonna
                     getVictims();
                     break;
                 case(9):  // Add a Victim to a Case
