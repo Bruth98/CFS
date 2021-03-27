@@ -144,15 +144,15 @@ public class UI {
     /*
     Get all Cases
     */
-
     private void getCases() {
         System.out.println("Searching Cases");
         int caseID = getCaseID();
         if (caseID == 0) { 
             return;
         }
-        
-
+        /*
+        !! This method is not finished !!
+        */
     }
 
     /*
@@ -199,6 +199,15 @@ public class UI {
 
         System.out.print(prompt + ": ");
         return keyboard.nextDouble();
+    }
+
+    /*
+    Gets each boolean field
+    */
+    private boolean getFieldBool(String prompt) {
+
+        System.out.print(prompt + ": ");
+        return keyboard.nextBoolean();
     }
 
     public void displayUsers(){
