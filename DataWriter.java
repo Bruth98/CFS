@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants {
-    public void savePersons(){
-        Persons persons = persons.getInstance(); //need to make two different classes one being Person and the other being persons similar to Users
-        ArrayList<Person> persons = person.getPersons();
+    public static void savePersons(){
+        Persons persons = Persons.getInstance(); 
+        ArrayList<Person> person = persons.getPerson();
         JSONArray jsonPerson = new JSONArray();
 
-        for(int i=0; i< persons.size(); i++){
-            jsonPerson.add(getPersons(JSON(persons.get(i))));
+        for(int i=0; i< person.size(); i++){
+            jsonPerson.add(getPersonJSON(person.get(i)));
         }
         try(FileWriter file = new FileWriter(PERSON_FILE_NAME)){
             file.write(jsonPerson.toJSONString());
@@ -103,7 +103,7 @@ public class DataWriter extends DataConstants {
     public static JSONObject getCrimeJSON(Crime crime){
         JSONObject crimeDetails = new JSONObject();
         crimeDetails.put(CRIME_TYPE, crime.getType());
-        crimeDetails.put(CRIME_FELONY, crime.getFelony());
+        crimeDetails.put(CRIME_FELONY, crime.isFelony());
 
         return crimeDetails;
     }
@@ -128,10 +128,10 @@ public class DataWriter extends DataConstants {
     public static JSONObject getEvidenceJSON(Evidence evidence){
         JSONObject evidenceDetails = new JSONObject();
         evidenceDetails.put(EVIDENCE_DESCRIPTION, evidence.getDescription());
-        evidenceDetails.put(EVIDENCE_DRUGS, evidence.getDrugs());
-        evidenceDetails.put(EVIDENCE_FINGERPRINTS, evidence.getFingerPrints());
+        evidenceDetails.put(EVIDENCE_DRUGS, evidence.isDrugs());
+        evidenceDetails.put(EVIDENCE_FINGERPRINTS, evidence.hasFingerprints());
         evidenceDetails.put(EVIDENCE_LOACTION, evidence.getLocation());
-        evidenceDetails.put(EVIDENCE_WEAPON, evidence.getWeapon());
+        evidenceDetails.put(EVIDENCE_WEAPON, evidence.isWeapon());
 
         return evidenceDetails;
     }
@@ -141,7 +141,7 @@ public class DataWriter extends DataConstants {
         ArrayList<Officer> officer = officers.getOfficers();
         JSONArray jsonOfficers = new JSONArray();
 
-        for(int i=0; i<officers.size(); i++){
+        for(int i=0; i<officer.size(); i++){
             jsonOfficers.add(getOfficerJSON(officer.get(i)));
         }
         try(FileWriter file = new FileWriter(OFFICER_FILE_NAME)){
@@ -156,7 +156,7 @@ public class DataWriter extends DataConstants {
     public static JSONObject getOfficerJSON(Officer officer){
         JSONObject officerDetails = new JSONObject();
         officerDetails.put(OFFICER_DEPARTMENT, officer.getDepartment());
-        officerDetails.put(OFFICER_FIRST_NAME, officer,getFirstName());
+        officerDetails.put(OFFICER_FIRST_NAME, officer.getFirstName());
         officerDetails.put(OFFICER_LAST_NAME, officer.getLastName());
 
         return officerDetails;
@@ -212,7 +212,7 @@ public class DataWriter extends DataConstants {
 
     public static JSONObject getVictimJSON(Victim victim){
         JSONObject victimDetails = new JSONObject();
-        victimDetails.put(VICTIM_ALIVE, victim.getAlive());
+        victimDetails.put(VICTIM_ALIVE, victim.getStatus());
         victimDetails.put(VICTIM_PHONE_NUMBER, victim.getPhoneNum());
         victimDetails.put(VICTIM_ADDRESS, victim.getAddress());
         victimDetails.put(VICTIM_NAME, victim.getName());
@@ -225,7 +225,7 @@ public class DataWriter extends DataConstants {
 
     public static void saveCase(){
         Cases cases = Cases.getInstance();
-        ArrayList<Case> case2 = cases.getCase();
+        ArrayList<Case> case2 = cases.getCases();
         JSONArray jsonCase = new JSONArray();
 
         for(int i=0; i<case2.size(); i++){
@@ -243,8 +243,8 @@ public class DataWriter extends DataConstants {
     public static JSONObject getCaseJSON(Case case2){
         JSONObject caseDetails = new JSONObject();
         caseDetails.put(CASE_ID, case2.getCaseID());
-        caseDetails.put(CASE_DATE, case2.getCaseDate());
-        caseDetails.put(CASE_LOCATION, case2.getCaseLocation());
+        caseDetails.put(CASE_DATE, case2.getDate());
+        caseDetails.put(CASE_LOCATION, case2.getLocation());
         
       
         return caseDetails;
@@ -252,7 +252,7 @@ public class DataWriter extends DataConstants {
 
     public static void saveWitness(){
         Witnesses witnesses = Witnesses.getInstance();
-        ArrayList<Witness> witness = witnesses.getCase();
+        ArrayList<Witness> witness = witnesses.getWitnesses();
         JSONArray jsonWitness = new JSONArray();
 
         for(int i=0; i<witness.size(); i++){

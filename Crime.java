@@ -7,10 +7,10 @@ public class Crime {
         this.felony = felony;
     }
     public String getType(){
-        return "";
+        return this.type;
     }
 
     public boolean isFelony(){
-        return false;
+        return this.felony;
     }
 }

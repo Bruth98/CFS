@@ -4,7 +4,7 @@ public class Witnesses {
     private static ArrayList<Witness> witnessList;
     
     private Witnesses() {
-        witnessList = DataLoader.loadWitnesses(); //Try to fix and if not done ask in meeting
+        witnessList = DataLoader.loadWitnesses(); 
     }
 
     public static Witnesses getInstance() {
@@ -18,11 +18,11 @@ public class Witnesses {
         return witnessList;
     }
     //add get user by ID
-    public boolean addWitness(String name, String address, int dob, String description, ArrayList<String> incidentReport, boolean relationToVictim) {
+    public boolean addWitness(String name, String address, int dob, String description,boolean relationToVictim) {
         if(haveWitness(name, dob)) {
             return false;
         }
-        witnessList.add(new Witness(name, address, dob, description, incidentReport, relationToVictim));
+        witnessList.add(new Witness(name, address, dob, description, relationToVictim));
         return true;
     }
 
@@ -36,7 +36,7 @@ public class Witnesses {
     }
 
     public void saveWitness() {
-        DataWriter.saveWitness(); //Same as load
+        DataWriter.saveWitness(); 
     }
 }
 

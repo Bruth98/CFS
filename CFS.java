@@ -24,13 +24,12 @@ public class CFS {
     public boolean login(int userID, String password) {
         if (!users.haveUser(userID, password)) {
             return false;
-        }
-        
+        }   
         return true;
     }
 
     public boolean getCases(int caseID) {
-        return cases.havecaseID(caseID);
+        return cases.haveCase(caseID);
     }
 
     public boolean getEvidence(String keyword) {

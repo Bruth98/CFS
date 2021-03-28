@@ -22,7 +22,7 @@ public class Victims {
         if(haveVictim(name, dob)) {
             return false;
         }
-        victimList.add(new Victim(name, address, dob, description, incidentReport, alive, phoneNum));
+        victimList.add(new Victim(name, address, dob, description,alive, phoneNum));
         return true;
     }
 

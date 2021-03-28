@@ -9,7 +9,7 @@ public class Witness extends Person{
         this.relationToVictim = false;
     }
 
-    public Witness(String name, String address, String description, int dob, boolean relationToVictim){
+    public Witness(String name, String address, int dob, String description, boolean relationToVictim){
         super();
         //this.incidentReport = incidentReport;
         this.relationToVictim = relationToVictim;
