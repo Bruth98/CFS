@@ -74,6 +74,7 @@ public class UI {
         String password = getField("password");
         if (cfs.createAccount(userID, password)) {
             System.out.println("You have successfully created an account.");
+            User user = new User(userID, password);  // IS THIS RIGHT?!?!
         }
         else {
             System.out.println("Sorry, that user already exists.");
