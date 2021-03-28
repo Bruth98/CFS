@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Database {
 
@@ -125,6 +126,8 @@ public class Database {
         System.out.println("Sorry no suspects with that hair color.");
         return null;
     }
+
+	
 
 
     

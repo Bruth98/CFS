@@ -6,6 +6,7 @@ public class CFS {
     private Witnesses witnesses;
     private Victims victims;
     private User currentUser;
+    private static Database database;
     
     public CFS() {
         users = Users.getInstance();
