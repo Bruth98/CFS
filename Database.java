@@ -29,5 +29,43 @@ public class Database {
     public static ArrayList<Witness> getWitnesses() {
         return new ArrayList<Witness>();
     }
+
+    public static String getFirst(String firstName) {
+
+    }
+
+    public static String getLast(String lastName) {
+
+    }
+
+    public static int getAge(int Age) {
+
+    }
+
+    public static double getHeight(double height) {
+
+    }
+
+    public static double getWeight(double weight) {
+
+    }
+
+    public static String getGender(String gender) {
+
+    }
+
+    public static Crime getCrime(String type) {
+
+    }
+
+    public static String getTattooDescription(String tattoo) {
+
+    }
+
+    public static String getHairColor(String hairColor) {
+
+    }
+
+
     
 }

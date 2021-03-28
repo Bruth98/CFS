@@ -20,8 +20,7 @@ public class Suspects {
     
     public boolean addSuspect(String name, String address, int dob,
       String description, String gender, String race, String hairColor,
-      double height, double weight, boolean tattoo, boolean criminalRecord,
-      ArrayList<String> family) {
+      double height, double weight, String tattoo, boolean criminalRecord) {
         if (haveSuspect(name, dob)) {
             return false;
         }

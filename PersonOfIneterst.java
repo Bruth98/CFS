@@ -4,7 +4,7 @@ public class PersonOfIneterst extends Person {
     public String hairColor;
     public double height;
     public double weight;
-    public boolean tattoo;
+    public String tattoo;
     public boolean criminalRecord;
 
     public PersonOfIneterst() {
@@ -14,19 +14,19 @@ public class PersonOfIneterst extends Person {
         this.hairColor = "None";
         this.height = 0.0;
         this.weight = 0.0;
-        this.tattoo = false;
+        this.tattoo = "None";
         this.criminalRecord = false;
     }
 
     public PersonOfIneterst(String gender, String race, String hairColor, double height, 
-                            double weight, boolean tattoo, boolean criminalRecord) {
+                            double weight, String tattooDescription, boolean criminalRecord) {
         super();
         this.gender = gender;
         this.race = race;
         this.hairColor = hairColor;
         this.height = height;
         this.weight = weight;
-        this.tattoo = tattoo;
+        this.tattoo = tattooDescription;
         this.criminalRecord = criminalRecord;
     }
 
@@ -50,8 +50,8 @@ public class PersonOfIneterst extends Person {
         return 0.0;
     }
 
-    public boolean hasTattoo() {
-        return false;
+    public String getTattooDescription() {
+        return this.tattoo;
     }
 
     public boolean hasCriminalRecord() {

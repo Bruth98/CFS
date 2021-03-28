@@ -19,7 +19,7 @@ public class Evidences {
         return evidenceList;
     }
 
-    public Evidence getEvidence(int evidenceID){
+    public Evidence getEvidenceID(int evidenceID){
         for(Evidence evidence : evidenceList){
             if(evidence.getEvidenceID() == (evidenceID)){
                 return evidence;

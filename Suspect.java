@@ -7,7 +7,7 @@ public class Suspect extends PersonOfIneterst{
         //this.family = null;
     }
     
-    public Suspect(String name,String address,int dob, String gender,String race, String hairColor,String hairColor2,double weight,double weight2,boolean criminalRecord, boolean tattoo) {
+    public Suspect(String name,String address, int dob, String description, String gender,String race, String hairColor, double weight, double height, String tattoo, boolean criminalRecord) {
         super();
         //this.family = family;
     }
@@ -29,7 +29,7 @@ public class Suspect extends PersonOfIneterst{
         return this.criminalRecord;
     }
 
-    public boolean getTattoo(){
+    public String getTattoo(){
         return this.tattoo;
     }
 }

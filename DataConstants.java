@@ -37,7 +37,7 @@ public abstract class DataConstants {
     protected static final String WITNESS_ADDRESS = "adress";
     protected static final String WITNESS_DESCRIPTION = "Description";
     protected static final String ADMIN_PASSWORD = "password";
-    protected static final boolean SUSPECT_TATTOO = true;
+    protected static final String SUSPECT_TATTOO = "tattoo description";
     protected static final boolean SUSPECT_CRIMINAL_RECORD = true;
     protected static final boolean EVIDENCE_WEAPON = false;
     protected static final boolean EVIDENCE_DRUGS = false;

@@ -7,7 +7,7 @@
       "type" : "physical",
       "notes" : "The hair does not match DNA of family members",
       "uncovered" : "The DNA matched the suspect Stephen King",
-      "relevant" : true
+      "stillRelevant" : true
     },{
       "id":2,
       "title":"Witness",
@@ -15,7 +15,7 @@
       "type" : "abstract",
       "notes" : "The home owner may have camera footage from security system.",
       "uncovered" : "the security footage did not show anything, the suspect Jacob Jackson was blonde.",
-      "relevant" : true
+      "stillRelevant" : true
     },{
        "id":3,
        "title":"Gun",
@@ -23,7 +23,7 @@
        "type" : "physical",
        "notes" : "The cashier recongnizes it as the weapon used by the suspect.",
        "uncovered" : "The weapon was registered by the suspect's brother. ",
-       "relevant" : true
+       "stillRelevant" : true
     },{
         "id":4,
         "title":"Fingerprints",
@@ -31,7 +31,7 @@
         "type" : "physical",
         "notes" : "The fingerprints could be family members of the owner that were not on scene.",
         "uncovered" : null,
-        "relevant" : true
+        "stillRelevant" : true
      }
  
  ]
