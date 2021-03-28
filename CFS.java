@@ -2,7 +2,7 @@ public class CFS {
     private Users users;
     private Cases cases;
     private Suspects suspects;
-    private EvidenceList evidence;
+    private Evidences evidence;
     private Witnesses witnesses;
     private Victims victims;
     private User currentUser;
@@ -11,8 +11,7 @@ public class CFS {
         users = Users.getInstance();
         cases = Cases.getInstance();
         suspects = Suspects.getInstance();
-        criminals = Criminals.getInstance();
-        evidence = evidenceList.getInstance();
+        evidence = Evidences.getInstance();
         witnesses = Witnesses.getInstance();
         victims = Victims.getInstance();
     }

@@ -54,6 +54,7 @@ public abstract class DataConstants {
     protected static final boolean EVIDENCE_FINGERPRINTS = false;
     protected static final boolean VICTIM_ALIVE = false;
     protected static final boolean WITNESS_RELATION_TO_VICTIM = false;
+    protected static final int PERSON_AGE = 00000000;
     protected static final int VICTIM_DOB = 00000000;
     protected static final int PERSON_DOB = 00000000;
     protected static final int EMPLOYEE_ID = 00000000;
@@ -64,6 +65,7 @@ public abstract class DataConstants {
     protected static final int SUSPECT_DOB = 00000000;
     protected static final int PERSON_OF_INTEREST_DOB = 00000000;
     protected static final int PERSON_OF_INTEREST_AGE = 00000000;
+    protected static final int SUSPECT_AGE = 0000000;
     protected static final double SUSPECT_HEIGHT = 0000.0000;
     protected static final double SUSPECT_WEIGHT = 0000.0000;
     protected static final double PERSON_OF_INTEREST_HEIGHT = 0000.0000;

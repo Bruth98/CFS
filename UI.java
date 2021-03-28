@@ -24,9 +24,10 @@ public class UI {
         System.out.println("****************************************");
         System.out.println("Welcome to Crime Fighter Software!");
         boolean correct = false;
+        while (true) {
+        displayMainMenu();
+        int userCommand = getUserCommand(mainMenu.length);
         do {
-            displayMainMenu();
-            int userCommand = getUserCommand(mainMenu.length);
             if (userCommand == -1) {
                 System.out.println("Not a valid choice. Try again.");
             }
@@ -36,10 +37,7 @@ public class UI {
                     cfs.logout();
                 }
             }
-        } while (!correct)
-
-
-        while (true) {
+        } while (!correct);
             switch (userCommand) {
                 case(0):  // Create Account
                     createAccount();
@@ -62,13 +60,9 @@ public class UI {
                     */
                     break;
             }
+            System.out.println("***** Users Online *****");
+            displayUsers();
         }
-    
-
-        System.out.println("Current Users");
-   
-        System.out.println("***** Users Online *****");
-        displayUsers();
     }
 
     /*

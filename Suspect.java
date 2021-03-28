@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class Suspect extends PersonOfIneterst{
+public class Suspect extends PersonOfInterest{
     //public ArrayList<String> family;
 
     public Suspect() {
@@ -7,22 +7,12 @@ public class Suspect extends PersonOfIneterst{
         //this.family = null;
     }
     
-    public Suspect(String name,String address, int dob, String description, String gender,String race, String hairColor, double weight, double height, String tattoo, boolean criminalRecord) {
+    public Suspect(String name, String address, int dob, String description, String gender, String race, String hairColor, double weight, double height, String tattoo, boolean criminalRecord, int age) {
         super();
-        //this.family = family;
     }
     
-    public Suspect(ArrayList<String> family) {
-        super();
-       // this.family = family;
-    }
-/*
-    public ArrayList<String> getFamily() {
-        return this.family;
-    }
-  */  
     public String toString(){
-        return "hello";
+        return "";
     }
 
     public boolean getCriminalRecord(){
@@ -31,5 +21,9 @@ public class Suspect extends PersonOfIneterst{
 
     public String getTattoo(){
         return this.tattoo;
+    }
+
+    public int getAge(){
+        return this.age;
     }
 }

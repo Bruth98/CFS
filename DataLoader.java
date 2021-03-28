@@ -19,9 +19,10 @@ public class DataLoader extends DataConstants {
                 String name =(String)personsJSON.get(PERSON_NAME);
                 String address = (String)personsJSON.get(PERSON_ADDRESS);
                 int dob =((Long)personsJSON.get(PERSON_DOB)).intValue();
+                int age =((Long)personsJSON.get(PERSON_AGE)).intValue();
                 String description = (String)personsJSON.get(PERSON_DESCRIPTION);
 
-                persons.add(new Person(name, address, dob, description));
+                persons.add(new Person(name, address, dob, age, description));
             }
             return persons;
         }
@@ -165,9 +166,10 @@ public class DataLoader extends DataConstants {
                 double height =((Long)suspectsJSON.get(SUSPECT_HEIGHT)).doubleValue();
                 double weight = ((Long)suspectsJSON.get(SUSPECT_WEIGHT)).doubleValue();
                 String tattoo = (String)suspectsJSON.get(SUSPECT_TATTOO);
+                int age = ((Long)suspectsJSON.get(SUSPECT_AGE)).intValue();
                 boolean criminalRecord = (boolean)suspectsJSON.get(SUSPECT_CRIMINAL_RECORD);
                 suspect.add(new Suspect(name, address, dob, description, gender, 
-                race, hairColor, height, weight, tattoo, criminalRecord));
+                race, hairColor, height, weight, tattoo, criminalRecord, age));
             }
 
             return suspect;
@@ -275,7 +277,7 @@ public class DataLoader extends DataConstants {
         return null;
     }
     public static ArrayList<PersonOfInterest> loadPersonofInterests(){
-        ArrayList<PersonOfInterest> personofinterest = new ArrayList<PersonOfInterest>;
+        ArrayList<PersonOfInterest> personofinterest = new ArrayList<PersonOfInterest>();
         try{
             FileReader reader = new FileReader(PERSON_OF_INTEREST_FILE_NAME);
             JSONParser parser = new JSONParser();
@@ -292,11 +294,12 @@ public class DataLoader extends DataConstants {
                 String hairColor = (String)possJSON.get(PERSON_OF_INTEREST_HAIR_COLOR);
                 double weight = ((Long)possJSON.get(PERSON_OF_INTEREST_WEIGHT)).doubleValue();
                 double height = ((Long)possJSON.get(PERSON_OF_INTEREST_HEIGHT)).doubleValue();
-                String tattoo = (String)possJSON.get(PERSON_OF_INTEREST_TATTOO)
+                String tattoo = (String)possJSON.get(PERSON_OF_INTEREST_TATTOO);
                 boolean criminalRecord = (boolean)possJSON.get(PERSON_OF_INTEREST_CRIMINAL_RECORD);
+                int age = ((Long)possJSON.get(PERSON_OF_INTEREST_AGE)).intValue();
 
-                personofinterest.add(new PersonOfInterest(gender, race, hairColor, height, 
-                weight, tattoo, criminalRecord));
+                personofinterest.add(new PersonOfInterest(null, gender, race, hairColor, height, 
+                weight, tattoo, criminalRecord, age));
             }
             return personofinterest;
         }

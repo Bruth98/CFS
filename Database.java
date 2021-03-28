@@ -31,8 +31,10 @@ public class Database {
     }
 
     public static ArrayList<Person> getFirst(String name) {
+        ArrayList<Person> person = new ArrayList<Person>();
         for(int i=0; i < Persons.getInstance().getPerson().size();i++){
-            if(Person.getName().equals(name)){
+            Person names = Persons.getInstance().getPerson().get(i);
+            if(names.getName().equals(name)){
                 return Persons.getInstance().getPerson();
             }
         }
@@ -41,43 +43,87 @@ public class Database {
     }
 
     public static ArrayList<Person> getAge(int age) {
+        ArrayList<Person> person = new ArrayList<Person>();
         for(int i=0; i < Persons.getInstance().getPerson().size();i++){
-            if(PersonOfIneterst.getAge() == age){
+            Person names = Persons.getInstance().getPerson().get(i);
+            if(names.getAge() == age){
                 return Persons.getInstance().getPerson();
             }
         }
-        System.out.println("Sorry no suspects with that name.");
+        System.out.println("Sorry no suspects with that age.");
         return null;
     }
 
     public static ArrayList<Person> getHeight(double height) {
-        for(int i=0; i < PersonsOfInterest.getInstance().getPerson().size();i++){
-            if(PersonsOfInterest.getHeight() == height){
+        ArrayList<Person> person = new ArrayList<Person>();
+        for(int i=0; i < Persons.getInstance().getPerson().size();i++){
+            Person names = Persons.getInstance().getPerson().get(i);
+            if(names.getHeight()== height){
                 return Persons.getInstance().getPerson();
             }
         }
-        System.out.println("Sorry no suspects with that name.");
+        System.out.println("Sorry no suspects with that height.");
         return null;
     }
 
     public static ArrayList<Person> getWeight(double weight) {
-
+        ArrayList<Person> person = new ArrayList<Person>();
+        for(int i=0; i < Persons.getInstance().getPerson().size();i++){
+            Person names = Persons.getInstance().getPerson().get(i);
+            if(names.getWeight() == weight){
+                return Persons.getInstance().getPerson();
+            }
+        }
+        System.out.println("Sorry no suspects with that weight.");
+        return null;
     }
 
-    public static ArrayList<Person> getGender(String gender) {
-
+    public static ArrayList<PersonOfInterest> getGender(String gender) {
+        ArrayList<PersonOfInterest> person = new ArrayList<PersonOfInterest>();
+        for(int i=0; i < PersonsOfInterest.getInstance().getPerson().size();i++){
+            PersonOfInterest names = PersonsOfInterest.getInstance().getPerson().get(i);
+            if(names.getGender().equals(gender)){
+                return PersonsOfInterest.getInstance().getPerson();
+            }
+        }
+        System.out.println("Sorry no suspects with that gender.");
+        return null;
+    }
+/*
+    public static ArrayList<PersonOfInterest> getCrime(String type) {
+        ArrayList<PersonOfInterest> person = new ArrayList<PersonOfInterest>();
+        for(int i=0; i < PersonsOfInterest.getInstance().getPerson().size();i++){
+            PersonOfInterest names = PersonsOfInterest.getInstance().getPerson().get(i);
+            if(names.getCrime().equals(type)){
+                return Persons.getInstance().getPerson();
+            }
+        }
+        System.out.println("Sorry no suspects with that crime.");
+        return null;
+    }
+*/
+    public static ArrayList<PersonOfInterest> getTattooDescription(String tattoo) {
+        ArrayList<PersonOfInterest> person = new ArrayList<PersonOfInterest>();
+        for(int i=0; i < Persons.getInstance().getPerson().size();i++){
+            PersonOfInterest names = PersonsOfInterest.getInstance().getPerson().get(i);
+            if(names.getTattooDescription().equals(tattoo)){
+                return PersonsOfInterest.getInstance().getPerson();
+            }
+        }
+        System.out.println("Sorry no suspects with that tattoo.");
+        return null;
     }
 
-    public static ArrayList<Person> getCrime(String type) {
-
-    }
-
-    public static ArrayList<Person> getTattooDescription(String tattoo) {
-
-    }
-
-    public static ArrayList<Person> getHairColor(String hairColor) {
-
+    public static ArrayList<PersonOfInterest> getHairColor(String hairColor) {
+        ArrayList<PersonOfInterest> person = new ArrayList<PersonOfInterest>();
+        for(int i=0; i < PersonsOfInterest.getInstance().getPerson().size();i++){
+            PersonOfInterest names = PersonsOfInterest.getInstance().getPerson().get(i);
+            if(names.getHairColor().equals(hairColor)){
+                return PersonsOfInterest.getInstance().getPerson();
+            }
+        }
+        System.out.println("Sorry no suspects with that hair color.");
+        return null;
     }
 
 

@@ -3,7 +3,7 @@ public class PersonsOfInterest {
     private static PersonsOfInterest personsOfInterest = null;
     private static ArrayList<PersonOfInterest> personOfInterestList;
     private PersonsOfInterest(){
-        personOfInterestList = DataLoader.loadPersonsOfInterest();
+        personOfInterestList = DataLoader.loadPersonofInterests();
     }
 
     public static PersonsOfInterest getInstance() {
@@ -17,12 +17,12 @@ public class PersonsOfInterest {
         return personOfInterestList;
     }
 
-    public boolean addPersonOfInterest(String name, String address, int dob, String description,
+    public boolean addPersonOfInterest(String name, String address, int dob, int age, String description,
       String gender, String race, String hairColor, double height, double weight, String tattooDescription, boolean criminalRecord){
         if(havePersonOfInterest(name, address, dob, description)){
             return false;
         }
-        personOfInterestList.add(new PersonOfInterest(name, address, dob, description, gender, race, hairColor, height, 
+        personOfInterestList.add(new PersonOfInterest(name, address, dob, age, description, gender, race, hairColor, height, 
         weight, tattooDescription, criminalRecord));
         return true;
     }
@@ -37,6 +37,6 @@ public class PersonsOfInterest {
     }
 
     public void savePersonsOfInterest(){
-        DataWriter.savePersonsOfInterest();
+        DataWriter.savePersonOfInterest();
     }
 }
