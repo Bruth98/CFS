@@ -14,7 +14,7 @@ public class Suspects {
         return suspects;
     }
 
-    public ArrayList<Suspect> gSuspects() {
+    public ArrayList<Suspect> getSuspects() {
         return suspectList;
     }
     
@@ -26,7 +26,7 @@ public class Suspects {
             return false;
         }
         suspectList.add(new Suspect(name, address, dob, description, gender, 
-          race, hairColor, height, weight, tattoo, criminalRecord, family))
+          race, hairColor, height, weight, tattoo, criminalRecord));
           return true;
       }
 

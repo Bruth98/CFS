@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+
+import org.json.simple.JSONArray;
 public class Case {
     private Crime crime;
     private ArrayList<Suspect> suspects;
@@ -29,6 +31,9 @@ public class Case {
         this.caseID = caseID;
         this.date = date;
         this.location = location;
+    }
+
+    public Case(int caseID2, String date2, String location2, JSONArray agentIDS, JSONArray evidenceIDS) {
     }
 
     public Crime getCrime(){

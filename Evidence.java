@@ -7,6 +7,7 @@ public class Evidence {
     private boolean drugs;
     private String location;
     private ArrayList<String> witnesses;
+    private int evidenceID;
 
 
     public Evidence(String description, String location, boolean weapon, boolean drugs, boolean fingerprints){
@@ -17,32 +18,34 @@ public class Evidence {
     }
 
     public boolean hasFingerprints(){
-        return false;
+        return this.fingerprints;
     }
-
-    /*
-    public getImage(){
-
-    }
-    */
 
     public boolean isWeapon(){
-        return false;
+        return this.weapon;
     }
 
     public boolean isDrugs(){
-        return false;
+        return this.drugs;
     }
 
     public String getLocation(){
-        return "";
+        return this.location;
     }
 
     public ArrayList<String> getWitnesses(){
-        return null;
+        return this.witnesses;
     }
 
     public String toString(){
         return "";
+    }
+
+    public void setEvidenceID(int evidenceID){
+        this.evidenceID = evidenceID;
+    }
+
+    public int getEvidenceID(){
+        return this.evidenceID;
     }
 }

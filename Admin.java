@@ -1,13 +1,9 @@
 import java.util.ArrayList;
 public class Admin extends Officer{
-    public Admin() {
+    public Admin(String firstName, String lastName, String department, int employeeID) {
         super();
     }
     
-    public Admin(String firstName, String lastName) {
-        super();
-    }
-
     public String getName() {
         return this.firstName + " " + this.lastName;
     }

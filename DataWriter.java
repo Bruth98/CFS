@@ -5,7 +5,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants {
     public void savePersons(){
-        Person person = Person.getInstance(); //need to make two different classes one being Person and the other being persons similar to Users
+        Persons persons = persons.getInstance(); //need to make two different classes one being Person and the other being persons similar to Users
         ArrayList<Person> persons = person.getPersons();
         JSONArray jsonPerson = new JSONArray();
 

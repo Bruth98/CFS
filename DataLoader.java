@@ -64,8 +64,9 @@ public class DataLoader extends DataConstants {
                 JSONObject adminsJSON = (JSONObject)adminJSON.get(i);
                 String firstName = (String)adminsJSON.get(ADMIN_FIRST_NAME);
                 String lastName = (String)adminsJSON.get(ADMIN_LAST_NAME);
-
-                admins.add(new Admin(firstName, lastName));
+                String department = (String)adminsJSON.get(ADMIN_DEPARTMENT);
+                int employeeID = ((Long)adminsJSON.get(ADMIN_EMPLOYEE_ID)).intValue();
+                admins.add(new Admin(firstName, lastName, department, employeeID));
             }
             return admins;
         }
@@ -165,10 +166,10 @@ public class DataLoader extends DataConstants {
                 double weight = ((Long)suspectsJSON.get(SUSPECT_WEIGHT)).doubleValue();
                 boolean tattoo = (boolean)suspectsJSON.get(SUSPECT_TATTOO);
                 boolean criminalRecord = (boolean)suspectsJSON.get(SUSPECT_CRIMINAL_RECORD);
-                JSONArray familyArray = (JSONArray)suspectsJSON.get("data constant");
-                ArrayList<String> family = getFamily(family);
+                //JSONArray familyArray = (JSONArray)suspectsJSON.get("data constant");
+               // ArrayList<String> family = getFamily(family);
                 suspect.add(new Suspect(name, address, dob, description, gender, 
-                race, hairColor, height, weight, tattoo, criminalRecord, family))
+                race, hairColor, height, weight, tattoo, criminalRecord));
             }
 
             return suspect;
@@ -178,6 +179,7 @@ public class DataLoader extends DataConstants {
         }
         return null;
     }
+    /*
     private static ArrayList<String> getFamily(JSONArray family){
         ArrayList<String> familys = new ArrayList<String>();
         for(int i=0; i< family.size(); i++){
@@ -187,7 +189,7 @@ public class DataLoader extends DataConstants {
         }
         return familys;
     }
-
+*/
     public static ArrayList<Victim> loadVictim(){
         ArrayList<Victim> victim = new ArrayList<Victim>();
         try{
@@ -203,7 +205,8 @@ public class DataLoader extends DataConstants {
                 int dob = ((Long)victimsJSON.get(VICTIM_DOB)).intValue();
                 int phoneNum = ((Long)victimsJSON.get(VICTIM_PHONE_NUMBER)).intValue();
                 boolean alive = (boolean)victimsJSON.get(VICTIM_ALIVE);
-                //needs IncidentReport array
+                //JSONArray incidentReports = (JSONArray)victimsJSON.get("data constant");
+                //ArrayList<String> incidentReport = getReport(incidentReport);
                 victim.add(new Victim(name, address, dob, description, alive, phoneNum));
             }
                 return victim;
@@ -214,6 +217,16 @@ public class DataLoader extends DataConstants {
             return null;
     }
 
+   /* private static ArrayList<String> getIncidentReport(JSONArray incidentReport){
+        ArrayList<String> incidentReports = new ArrayList<String>;
+        for(int i=0; i<incidentReport.size(); i++){
+            String reports = (String)incidentReport.get(i);
+            IncidentReport incidentreport = incidentReport.getInstance().getReport();
+            incidentReports.add(incidentreport);
+        }
+        return incidentReports;
+    }  
+*/
     public static ArrayList<Case> loadCase(){
         ArrayList<Case> case2 = new ArrayList<Case>();
         try{
@@ -228,7 +241,9 @@ public class DataLoader extends DataConstants {
                 String location = (String)casesJSON.get(CASE_LOCATION);
                 JSONArray agentIDS = (JSONArray)casesJSON.get("data constant");
                 ArrayList<User> users = getUsers(agentIDS);
-                case2.add(new Case(caseID, date, location));
+                JSONArray EvidenceIDS = (JSONArray)casesJSON.get("data constant");
+                ArrayList<Evidence> evidences = getEvidence(EvidenceIDS);
+                case2.add(new Case(caseID, date, location,agentIDS,EvidenceIDS));
             }
 
             return case2;
@@ -249,6 +264,15 @@ public class DataLoader extends DataConstants {
         }
         return users;
     }
+    private static ArrayList<Evidence> getEvidence(JSONArray EvidenceIDS){
+        ArrayList<Evidence> evidences = new ArrayList<Evidence>();
+        for(int i=0; i< EvidenceIDS.size(); i++){
+            int userID = ((Long)EvidenceIDS.get(i)).intValue();
+            Evidence evidence = Evidences.getInstance().getEvidence(EvidenceIDS);
+            evidences.add(evidence);
+        }
+        return evidences;
+    }
     public static ArrayList<Witness> loadWitnesses(){
         ArrayList<Witness> witness = new ArrayList<Witness>();
         try{
@@ -264,7 +288,7 @@ public class DataLoader extends DataConstants {
                 int dob = ((Long)witnessJSON.get(WITNESS_DOB)).intValue();
                 boolean relationToVictim = (boolean)witnessesJSON.get(WITNESS_RELATION_TO_VICTIM);
 
-                witness.add(name, address, description, dob, relationToVictim);
+                witness.add(new Witness(name, address, description, dob, relationToVictim));
             }
             return witness;
         }
