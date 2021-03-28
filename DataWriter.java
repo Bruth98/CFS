@@ -192,6 +192,7 @@ public class DataWriter extends DataConstants {
         suspectDetails.put(SUSPECT_TATTOO, suspect.getTattoo());
         suspectDetails.put(SUSPECT_WEIGHT, suspect.getWeight());
         suspectDetails.put(SUSPECT_AGE, suspect.getAge());
+        suspectDetails.put(SUSPECT_PHONE_NUMBER, suspect.getPhoneNum());
         
 
         return suspectDetails;
