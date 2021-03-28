@@ -168,8 +168,9 @@ public class DataLoader extends DataConstants {
                 String tattoo = (String)suspectsJSON.get(SUSPECT_TATTOO);
                 int age = ((Long)suspectsJSON.get(SUSPECT_AGE)).intValue();
                 boolean criminalRecord = (boolean)suspectsJSON.get(SUSPECT_CRIMINAL_RECORD);
+                int phoneNumber = ((Long)suspectsJSON.get(SUSPECT_PHONE_NUMBER)).intValue();
                 suspect.add(new Suspect(name, address, dob, description, gender, 
-                race, hairColor, height, weight, tattoo, criminalRecord, age));
+                race, hairColor, height, weight, tattoo, criminalRecord, age, phoneNumber));
             }
 
             return suspect;
