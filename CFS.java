@@ -29,8 +29,8 @@ public class CFS {
         return true;
     }
 
-    public boolean getCases(String keyword) {
-        return cases.haveKeyword(keyword);
+    public boolean getCases(int caseID) {
+        return cases.havecaseID(caseID);
     }
 
     public boolean getEvidence(String keyword) {

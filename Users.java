@@ -19,7 +19,7 @@ public class Users {
         return userList;
     }
     //add get user by ID
-    public boolean addUser(int userID, String password) {
+    public static boolean addUser(int userID, String password) {
         if(haveUser(userID, password)) {
             return false;
         }
@@ -27,7 +27,7 @@ public class Users {
         return true;
     }
 
-    public boolean haveUser(int userID, String password) {
+    public static boolean haveUser(int userID, String password) {
         for (User user : userList) {
             if (user.getUserID() == userID && user.getPassword().equals(password)) {
                 return true;
