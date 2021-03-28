@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants {
+
     public static void savePersons(){
         Persons persons = Persons.getInstance(); 
         ArrayList<Person> person = persons.getPerson();
+
+
         JSONArray jsonPerson = new JSONArray();
 
         for(int i=0; i< person.size(); i++){
