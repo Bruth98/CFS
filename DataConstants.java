@@ -24,6 +24,9 @@ public abstract class DataConstants {
     protected static final String SUSPECT_GENDER = "gender";
     protected static final String SUSPECT_RACE = "race";
     protected static final String SUSPECT_HAIR_COLOR = "hair color";
+    protected static final String SUSPECT_NAME = "name";
+    protected static final String SUSPECT_ADDRESS = "address";
+    protected static final String SUSPECT_DESCRIPTION = "description";
     protected static final String CASE_DATE = "date";
     protected static final String CASE_LOCATION = "location";
     protected static final String VICTIM_NAME = "name";
@@ -46,6 +49,7 @@ public abstract class DataConstants {
     protected static final int VICTIM_PHONE_NUMBER = 00000000;
     protected static final int CASE_ID = 00000000;
     protected static final int WITNESS_DOB = 00000000;
+    protected static final int SUSPECT_DOB = 00000000;
     protected static final double SUSPECT_HEIGHT = 0000.0000;
     protected static final double SUSPECT_WEIGHT = 0000.0000;
    

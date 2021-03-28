@@ -5,7 +5,7 @@ public class Users {
     private static ArrayList<User> userList;
     
     private Users() {
-        userList = DataLoader.loadUsers(); //Try to fix and if not done ask in meeting
+        userList = DataLoader.loadUsers(); 
     }
 
     public static Users getInstance() {
@@ -43,7 +43,7 @@ public class Users {
         return null;
     }
     public void saveUsers() {
-        DataWriter.saveUsers(); //Same as load
+        DataWriter.saveUsers(); 
     }
 }
 

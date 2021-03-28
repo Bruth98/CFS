@@ -18,7 +18,7 @@ public class DataLoader extends DataConstants {
                 JSONObject personsJSON = (JSONObject)personJSON.get(i);
                 String name =(String)personsJSON.get(PERSON_NAME);
                 String address = (String)personsJSON.get(PERSON_ADDRESS);
-                int dob =(int)personsJSON.get(PERSON_DOB);
+                int dob =((Long)personsJSON.get(PERSON_DOB)).intValue();
                 String description = (String)personsJSON.get(PERSON_DESCRIPTION);
 
                 persons.add(new Person(name, address, dob, description));
@@ -40,7 +40,7 @@ public class DataLoader extends DataConstants {
 
             for(int i =0; i< userJSON.size();i++){
                 JSONObject usersJSON = (JSONObject)usersJSON.get(i);
-                int employeeID = (int)usersJSON.get(EMPLOYEE_ID);
+                int employeeID = ((Long)usersJSON.get(EMPLOYEE_ID)).intValue();
                 String password = (String)usersJSON.get(EMPLOYEE_PASSWORD);
                 
                 users.add(new User(employeeID, password));
@@ -157,12 +157,18 @@ public class DataLoader extends DataConstants {
                 String gender = (String)suspectsJSON.get(SUSPECT_GENDER);
                 String race = (String)suspectsJSON.get(SUSPECT_RACE);
                 String hairColor = (String)suspectsJSON.get(SUSPECT_HAIR_COLOR);
-                double height =(double)suspectsJSON.get(SUSPECT_HEIGHT);
-                double weight = (double)suspectsJSON.get(SUSPECT_WEIGHT);
+                String name = (String)suspectsJSON.get(SUSPECT_NAME);
+                String address = (String)suspectsJSON.get(SUSPECT_ADDRESS);
+                String description = (String)suspectsJSON.get(SUSPECT_DESCRIPTION);
+                int dob = ((Long)suspectsJSON.get(SUSPECT_DOB)).intValue();
+                double height =((Long)suspectsJSON.get(SUSPECT_HEIGHT)).doubleValue();
+                double weight = ((Long)suspectsJSON.get(SUSPECT_WEIGHT)).doubleValue();
                 boolean tattoo = (boolean)suspectsJSON.get(SUSPECT_TATTOO);
                 boolean criminalRecord = (boolean)suspectsJSON.get(SUSPECT_CRIMINAL_RECORD);
-                suspect.add(new Suspect(gender, race, hairColor, height, weight, tattoo, criminalRecord));
-
+                JSONArray familyArray = (JSONArray)suspectsJSON.get("data constant");
+                ArrayList<String> family = getFamily(family);
+                suspect.add(new Suspect(name, address, dob, description, gender, 
+                race, hairColor, height, weight, tattoo, criminalRecord, family))
             }
 
             return suspect;
@@ -171,6 +177,15 @@ public class DataLoader extends DataConstants {
             e.printStackTrace();
         }
         return null;
+    }
+    private static ArrayList<String> getFamily(JSONArray family){
+        ArrayList<String> familys = new ArrayList<String>();
+        for(int i=0; i< family.size(); i++){
+            String familyMember = (String)family.get(i);
+            Family fam = Familys.getInstance().getFamily(familyMember);
+            familys.add(fam);
+        }
+        return familys;
     }
 
     public static ArrayList<Victim> loadVictim(){
@@ -182,11 +197,11 @@ public class DataLoader extends DataConstants {
 
             for(int i=0; i<victimJSON.size(); i++){
                 JSONObject victimsJSON = (JSONObject)victimJSON.get(i);
-                String name = (String)victimJSON.get(VICTIM_NAME);
-                String address = (String)victimJSON.get(VICTIM_ADDRESS);
-                String description = (String)victimJSON.get(VICTIM_DESCRIPTION);
-                int dob = (int)victimJSON.get(VICTIM_DOB);
-                int phoneNum = (int)victimsJSON.get(VICTIM_PHONE_NUMBER);
+                String name = (String)victimsJSON.get(VICTIM_NAME);
+                String address = (String)victimsJSON.get(VICTIM_ADDRESS);
+                String description = (String)victimsJSON.get(VICTIM_DESCRIPTION);
+                int dob = ((Long)victimsJSON.get(VICTIM_DOB)).intValue();
+                int phoneNum = ((Long)victimsJSON.get(VICTIM_PHONE_NUMBER)).intValue();
                 boolean alive = (boolean)victimsJSON.get(VICTIM_ALIVE);
                 //needs IncidentReport array
                 victim.add(new Victim(name, address, dob, description, alive, phoneNum));
@@ -208,7 +223,7 @@ public class DataLoader extends DataConstants {
 
             for(int i=0; i<caseJSON.size(); i++){
                 JSONObject casesJSON = (JSONObject)casesJSON.get(i);
-                int caseID =(int)casesJSON.get(CASE_ID);
+                int caseID =((Long)casesJSON.get(CASE_ID)).intValue();
                 String date = (String)casesJSON.get(CASE_DATE);
                 String location = (String)casesJSON.get(CASE_LOCATION);
                 JSONArray agentIDS = (JSONArray)casesJSON.get("data constant");
@@ -246,7 +261,7 @@ public class DataLoader extends DataConstants {
                 String name = (String)witnessesJSON.get(WITNESS_NAME);
                 String address = (String)witnessesJSON.get(WITNESS_NAME);
                 String description = (String)witnessesJSON.get(WITNESS_DESCRIPTION);
-                int dob = (int)witnessesJSON.get(WITNESS_DOB);
+                int dob = ((Long)witnessJSON.get(WITNESS_DOB)).intValue();
                 boolean relationToVictim = (boolean)witnessesJSON.get(WITNESS_RELATION_TO_VICTIM);
 
                 witness.add(name, address, description, dob, relationToVictim);
