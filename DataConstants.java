@@ -60,6 +60,7 @@ public abstract class DataConstants {
     protected static final int EMPLOYEE_ID = 00000000;
     protected static final int ADMIN_EMPLOYEE_ID = 00000000;
     protected static final int VICTIM_PHONE_NUMBER = 00000000;
+    protected static final int SUSPECT_PHONE_NUMBER = 00000000;
     protected static final int CASE_ID = 00000000;
     protected static final int WITNESS_DOB = 00000000;
     protected static final int SUSPECT_DOB = 00000000;
