@@ -20,12 +20,12 @@ public class Suspects {
     
     public boolean addSuspect(String name, String address, int dob,
       int age, String description, String gender, String race, String hairColor,
-      double height, double weight, String tattoo, boolean criminalRecord) {
+      double height, double weight, String tattoo, boolean criminalRecord, int phoneNum) {
         if (haveSuspect(name, dob)) {
             return false;
         }
-        suspectList.add(new Suspect(name, address, dob, age, description, gender, 
-          race, hairColor, height, weight, tattoo, criminalRecord));
+        suspectList.add(new Suspect(name, address, dob, description, gender, 
+          race, hairColor, height, weight, tattoo, criminalRecord,age, phoneNum));
           return true;
       }
 
