@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
-import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
+//import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
 
 import java.util.ArrayList;
 public class UI {
-    private String[] mainMenu = {"Create Account", "Login", "Get Cases", "Add Case", "Get Suspects", "Add Suspect", "Get Witnesses", "Add Witness", "Get Victims", "Add Victims", "Log Out"};
+    private String[] mainMenu = {"Create Account", "Login", "Get Cases", "Add Case", "Find Suspects"};
+    private String[] searchBy = {"First Name", "Last Name", "Age", "Height", "Weight", "Gender", "Crime Type", "Tattoo Description", "Hair Color"};
     private Scanner keyboard;
     private CFS cfs;
     private boolean loggedIn = false;
@@ -22,23 +23,24 @@ public class UI {
     public void play() {
         System.out.println("****************************************");
         System.out.println("Welcome to Crime Fighter Software!");
-        displayMainMenu();
-        int userCommand = getUserCommand(mainMenu.length);
+        boolean correct = false;
+        do {
+            displayMainMenu();
+            int userCommand = getUserCommand(mainMenu.length);
+            if (userCommand == -1) {
+                System.out.println("Not a valid choice. Try again.");
+            }
+            if (userCommand > 0 && userCommand < mainMenu.length ) {
+                correct = true;
+                if (userCommand == (mainMenu.length - 1)) {
+                    cfs.logout();
+                }
+            }
+        } while (!correct)
 
-        if (userCommand == -1) {
-            System.out.println("Not a valid choice.");
-            continue;
-        }
-        
-        if (userCommand == (mainMenu.length - 1) {
-            cfs.logout();
-            break;
-        }
 
         while (true) {
-            System.out.println("What do you want to do?");
-            int choice = keyboard.nextInt();
-            switch (choice) {
+            switch (userCommand) {
                 case(0):  // Create Account
                     createAccount();
                     break;
@@ -59,67 +61,15 @@ public class UI {
                     ALSO: In no scenarios do we need to add a suspect, so if we just load in JSON files, do we even need an addSuspect method?
                     */
                     break;
-                case(5):  // Add a Suspect to a Case
-                    addSuspects();  // needs to be added
-                    break;
-                case(6):  // Get all Witnesses (
-                    getWitnesses();
-                    break;
-                case(7):  // Add a Witness to a Case
-                    addWitness();  // needs to be added
-                    break;
-                case(8):  // Get all Victims (we're gonna
-                    getVictims();
-                    break;
-                case(9):  // Add a Victim to a Case
-                    addVictims();  // needs to be added
-                    break;
             }
+        }
+    
 
         System.out.println("Current Users");
    
         System.out.println("***** Users Online *****");
         displayUsers();
-        }
-        /*
-        while(addUser()) {
-            int userID = getFieldInt("employeeID");
-            String password = getField("password");
-
-            Users.addUser(userID, password); // Ask about this
-        }
-
-        System.out.println("***** Your updated list of Users *****")
-        displayUsers();
-
-        System.out.println("\nHave a good day!")
-        */
     }
-
-    /*
-    Main Menu Options
-    */
-    private void displayMainMenu() {
-        System.out.println("\n************ Main Menu *************");
-        for(int i=0; i< mainMenu.length; i++) {
-            System.out.println((i+1) + ". " + mainMenu[i]);
-        }
-        System.out.println("\n");
-    }
-
-    /*
-    Take in User input
-    */
-    private int getUserCommand(int numCommands) {
-        System.out.println("What would you like to do? ");
-        String input = keyboard.nextLine();
-        int command = Integer.parseInt(input) - 1;
-
-        if (command >= 0 && command <= numCommands - 1) {
-            return command;
-        }
-        return -1;
-    } 
 
     /*
     Create Account
@@ -178,6 +128,116 @@ public class UI {
             }
         }
     }
+
+    /*
+    Add a Case
+    */
+    private void addCase() {
+
+    }
+
+    /*
+    Gets Suspects
+    */
+    private void getSuspects() {
+        Scanner keyboard = new Scanner(System.in);
+        int input = 0;
+        String sInput;
+        int input1;
+        double inputD;
+        ArrayList<String> personID = new ArrayList<String>();
+        displaySearchChoices();
+        System.out.println("Enter the number of Categories you would like to search for");
+        input = keyboard.nextInt();
+        keyboard.nextLine();
+        ArrayList<Person> personFound = new ArrayList<Person>();
+        
+        for(int i=0; i<input;i++){
+            System.out.println("Keyword:" + (i+1) + " ");
+            sInput = keyboard.nextLine();
+            sInput.toLowerCase();
+            if(sInput.equals("name")){
+                System.out.println("Enter name");
+                sInput = keyboard.nextLine();
+                personFound.addAll(Database.getFirst(sInput));
+            }
+            else if(sInput.equals("age")){
+                System.out.println("Enter age");
+                input1 = keyboard.nextInt();
+                keyboard.nextLine();
+                personFound.addAll(Database.getAge(input1));
+            }
+            else if(sInput.equals("height")){
+                System.out.println("Enter height");
+                inputD = keyboard.nextDouble();
+                keyboard.nextLine();
+                personFound.addAll(Database.getHeight(inputD));
+            }
+            else if(sInput.equals("weight")){
+                System.out.println("Enter weight");
+                inputD = keyboard.nextDouble();
+                keyboard.nextDouble();
+                personFound.addAll(Database.getWeight(inputD));
+            }
+            else if(sInput.equals("gender")){
+                System.out.println("Enter gender");
+                sInput = keyboard.nextLine();
+                personFound.addAll(Database.getGender(sInput));
+            }
+            else if(sInput.equals("crime")){
+                System.out.println("Enter crime");
+                sInput = keyboard.nextLine();
+                personFound.addAll(Database.getCrime(sInput));
+            }
+            else if(sInput.equals("tattoo")){
+                System.out.println("Enter tattoo description");
+                sInput = keyboard.nextLine();
+                personFound.addAll(Database.getTattooDescription(sInput));
+            }
+            else if(sInput.equals("hair color")){
+                System.out.println("Enter hair color");
+                sInput = keyboard.nextLine();
+                personFound.addAll(Database.getHairColor(sInput));
+            }
+        }
+    
+    }
+    /*
+    Main Menu Options
+    */
+    private void displayMainMenu() {
+        System.out.println("\n************ Main Menu *************");
+        for(int i=0; i< mainMenu.length; i++) {
+            System.out.println((i+1) + ". " + mainMenu[i]);
+        }
+        System.out.println("\n");
+    }
+
+    /*
+    Search Suspect Options
+    */
+    private void displaySearchChoices() {
+        System.out.println("************ Search By ************");
+        for(int i=0; i < searchBy.length; i++) {
+            System.out.println((i+1) + ". " + searchBy[i]);
+        }
+        System.out.println("\n***********************************");
+    }
+
+    /*
+    Take in User input
+    */
+    private int getUserCommand(int numCommands) {
+        System.out.println("What would you like to do? ");
+        String input = keyboard.nextLine();
+        int command = Integer.parseInt(input) - 1;
+
+        if (command >= 0 && command <= numCommands - 1) {
+            return command;
+        }
+        return -1;
+    } 
+
 
     /*
     Gets each String field

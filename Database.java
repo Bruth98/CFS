@@ -30,39 +30,53 @@ public class Database {
         return new ArrayList<Witness>();
     }
 
-    public static String getFirst(String firstName) {
+    public static ArrayList<Person> getFirst(String name) {
+        for(int i=0; i < Persons.getInstance().getPerson().size();i++){
+            if(Person.getName().equals(name)){
+                return Persons.getInstance().getPerson();
+            }
+        }
+        System.out.println("Sorry no suspects with that name.");
+        return null;
+    }
+
+    public static ArrayList<Person> getAge(int age) {
+        for(int i=0; i < Persons.getInstance().getPerson().size();i++){
+            if(PersonOfIneterst.getAge() == age){
+                return Persons.getInstance().getPerson();
+            }
+        }
+        System.out.println("Sorry no suspects with that name.");
+        return null;
+    }
+
+    public static ArrayList<Person> getHeight(double height) {
+        for(int i=0; i < PersonsOfInterest.getInstance().getPerson().size();i++){
+            if(PersonsOfInterest.getHeight() == height){
+                return Persons.getInstance().getPerson();
+            }
+        }
+        System.out.println("Sorry no suspects with that name.");
+        return null;
+    }
+
+    public static ArrayList<Person> getWeight(double weight) {
 
     }
 
-    public static String getLast(String lastName) {
+    public static ArrayList<Person> getGender(String gender) {
 
     }
 
-    public static int getAge(int Age) {
+    public static ArrayList<Person> getCrime(String type) {
 
     }
 
-    public static double getHeight(double height) {
+    public static ArrayList<Person> getTattooDescription(String tattoo) {
 
     }
 
-    public static double getWeight(double weight) {
-
-    }
-
-    public static String getGender(String gender) {
-
-    }
-
-    public static Crime getCrime(String type) {
-
-    }
-
-    public static String getTattooDescription(String tattoo) {
-
-    }
-
-    public static String getHairColor(String hairColor) {
+    public static ArrayList<Person> getHairColor(String hairColor) {
 
     }
 

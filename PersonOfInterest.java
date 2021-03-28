@@ -1,4 +1,5 @@
-public class PersonOfIneterst extends Person {
+import java.util.ArrayList;
+public class PersonOfInterest extends Person {
     public String gender;
     public String race;
     public String hairColor;
@@ -7,7 +8,7 @@ public class PersonOfIneterst extends Person {
     public String tattoo;
     public boolean criminalRecord;
 
-    public PersonOfIneterst() {
+    public PersonOfInterest() {
         super();
         this.gender = "None";
         this.race = "None";
@@ -18,7 +19,7 @@ public class PersonOfIneterst extends Person {
         this.criminalRecord = false;
     }
 
-    public PersonOfIneterst(String gender, String race, String hairColor, double height, 
+    public PersonOfInterest(String gender, String race, String hairColor, double height, 
                             double weight, String tattooDescription, boolean criminalRecord) {
         super();
         this.gender = gender;

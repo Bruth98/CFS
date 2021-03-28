@@ -274,5 +274,36 @@ public class DataLoader extends DataConstants {
         }
         return null;
     }
+    public static ArrayList<PersonOfInterest> loadPersonofInterests(){
+        ArrayList<PersonOfInterest> personofinterest = new ArrayList<PersonOfInterest>;
+        try{
+            FileReader reader = new FileReader(PERSON_OF_INTEREST_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray posJSON = (JSONArray)new JSONParser().parse(reader);
+        
+            for(int i =0; i<posJSON.size();i++){
+                JSONObject possJSON = (JSONObject)posJSON.get(i);
+                String name = (String)possJSON.get(PERSON_OF_INTEREST_NAME);
+                String address = (String)possJSON.get(PERSON_OF_INTEREST_ADDRESS);
+                int dob = ((Long)possJSON.get(PERSON_OF_INTEREST_DOB)).intValue();
+                String description = (String)possJSON.get(PERSON_OF_INTEREST_DESCRIPTION);
+                String gender = (String)possJSON.get(PERSON_OF_INTEREST_GENDER);
+                String race = (String)possJSON.get(PERSON_OF_INTEREST_RACE);
+                String hairColor = (String)possJSON.get(PERSON_OF_INTEREST_HAIR_COLOR);
+                double weight = ((Long)possJSON.get(PERSON_OF_INTEREST_WEIGHT)).doubleValue();
+                double height = ((Long)possJSON.get(PERSON_OF_INTEREST_HEIGHT)).doubleValue();
+                String tattoo = (String)possJSON.get(PERSON_OF_INTEREST_TATTOO)
+                boolean criminalRecord = (boolean)possJSON.get(PERSON_OF_INTEREST_CRIMINAL_RECORD);
+
+                personofinterest.add(new PersonOfInterest(gender, race, hairColor, height, 
+                weight, tattoo, criminalRecord));
+            }
+            return personofinterest;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
 

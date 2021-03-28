@@ -1,24 +1,24 @@
 [
 
-    {
-      "id":1,
-      "title":"Arson",
-      "date":"01/05/1992",
-      "description" : "Household was burned down.",
-      "location" : "123 Greenhouse lane"
-    },{
-      "id":2,
-      "title":"Robbery and murder",
-      "date":"08/21/1998",
-      "description" : "Money taken from gas station at gun point.",
-      "location" : "203 gas road"
-    },{
-      "id":3,
-      "title":"Vandalism",
-      "date":"05/19/1949",
-      "description" : "A car had its wheels removed in a parking lot.",
-      "location" : "488 wheelsteal street"
-    }
- 
- ]
+  {
+    "id":1,
+    "title":"Arson",
+    "date":"01/05/1992",
+    "description" : "Household was burned down.",
+    "location" : "123 Greenhouse lane"
+  },{
+    "id":2,
+    "title":"Robbery and murder",
+    "date":"08/21/1998",
+    "description" : "Money taken from gas station at gun point.",
+    "location" : "203 gas road"
+  },{
+    "id":3,
+    "title":"Vandalism",
+    "date":"05/19/1949",
+    "description" : "A car had its wheels removed in a parking lot.",
+    "location" : "488 wheelsteal street"
+  }
+
+]
  

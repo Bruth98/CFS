@@ -9,6 +9,7 @@ public abstract class DataConstants {
     protected static final String VICTIM_FILE_NAME = "Victim.json";
     protected static final String CASE_FILE_NAME = "Case.json";
     protected static final String WITNESS_FILE_NAME = "Witness.json";
+    protected static final String PERSON_OF_INTEREST_FILE_NAME = "PersonOfInterest.json";
     protected static final String PERSON_NAME = "name";
     protected static final String PERSON_ADDRESS = "address";
     protected static final String PERSON_DESCRIPTION = "description";
@@ -38,6 +39,14 @@ public abstract class DataConstants {
     protected static final String WITNESS_DESCRIPTION = "Description";
     protected static final String ADMIN_PASSWORD = "password";
     protected static final String SUSPECT_TATTOO = "tattoo description";
+    protected static final String PERSON_OF_INTEREST_NAME ="name";
+    protected static final String PERSON_OF_INTEREST_ADDRESS = "address";
+    protected static final String PERSON_OF_INTEREST_DESCRIPTION = "description";
+    protected static final String PERSON_OF_INTEREST_GENDER = "gender";
+    protected static final String PERSON_OF_INTEREST_RACE = "race";
+    protected static final String PERSON_OF_INTEREST_HAIR_COLOR = "hair color";
+    protected static final String PERSON_OF_INTEREST_TATTOO = "tattoo";
+    protected static final boolean PERSON_OF_INTEREST_CRIMINAL_RECORD = true;
     protected static final boolean SUSPECT_CRIMINAL_RECORD = true;
     protected static final boolean EVIDENCE_WEAPON = false;
     protected static final boolean EVIDENCE_DRUGS = false;
@@ -53,7 +62,11 @@ public abstract class DataConstants {
     protected static final int CASE_ID = 00000000;
     protected static final int WITNESS_DOB = 00000000;
     protected static final int SUSPECT_DOB = 00000000;
+    protected static final int PERSON_OF_INTEREST_DOB = 00000000;
+    protected static final int PERSON_OF_INTEREST_AGE = 00000000;
     protected static final double SUSPECT_HEIGHT = 0000.0000;
     protected static final double SUSPECT_WEIGHT = 0000.0000;
+    protected static final double PERSON_OF_INTEREST_HEIGHT = 0000.0000;
+    protected static final double PERSON_OF_INTEREST_WEIGHT = 0000.0000;
    
 }

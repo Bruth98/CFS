@@ -4,21 +4,18 @@
       "id":1,
       "crimeId":1,
       "suspectId":2,
-      "agentId":[1,2], 
       "evidenceId": [1,2],
       "victimId" : 1
     },{
       "id":2,
       "crimeId":2,
       "suspectId":1,
-      "agentId":2,
       "evidenceId":3,
       "victimId" : 2
     },{
       "id":3,
       "crimeId":3,
       "suspectId":3,
-      "agentId":3,
       "evidenceId":4,
       "victimId" : 3
     }

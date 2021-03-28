@@ -19,23 +19,23 @@ public class Person {
         this.description = description;
     }
 
-    public String getName() {
+    public static String getName() {
         return this.name;
     }
 
-    public String getAddress() {
+    public static String getAddress() {
         return this.address;
     }
 
-    public int getDOB() {
+    public static int getDOB() {
         return this.dob;
     }
 
-    public String getDescription() {
+    public static String getDescription() {
         return this.description;
     }
 
-    public String toString() {
+    public static String toString() {
         return "Name: " + this.name + " Address: " + this.address + " DOB: " + this.dob + " Description: " + this.description;
     }
 }

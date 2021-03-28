@@ -282,4 +282,37 @@ public class DataWriter extends DataConstants {
         return witnessDetails;
     }
 
+    public static void savePersonOfInterest(){
+        PersonsOfInterest personsOfInterest = PersonsOfInterest.getInstance();
+        ArrayList<PersonOfInterest> personofinterest = personsOfInterest.getPerson();
+        JSONArray jsonPOS = new JSONArray();
+        for(int i=0; i< personofinterest.size(); i++){
+            jsonPOS.add(getPersonOfInterestJSON(personofinterest.get(i)));
+        }
+        try(FileWriter file = new FileWriter(PERSON_OF_INTEREST_FILE_NAME)){
+            file.write(jsonPOS.toJSONString());
+            file.flush();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject getPersonOfInterestJSON(PersonOfInterest personofinterest){
+        JSONObject posDetails = new JSONObject();
+        posDetails.put(PERSON_OF_INTEREST_ADDRESS, personofinterest.getAddress());
+        posDetails.put(PERSON_OF_INTEREST_CRIMINAL_RECORD, personofinterest.getCriminalRecord());
+        posDetails.put(PERSON_OF_INTEREST_DOB, personofinterest.getDOB());
+        posDetails.put(PERSON_OF_INTEREST_DESCRIPTION, personofinterest.getDescription());
+        posDetails.put(PERSON_OF_INTEREST_GENDER, personofinterest.getGender());
+        posDetails.put(PERSON_OF_INTEREST_HAIR_COLOR, personofinterest.getHairColor());
+        posDetails.put(PERSON_OF_INTEREST_HEIGHT, personofinterest.getHeight());
+        posDetails.put(PERSON_OF_INTEREST_NAME, personofinterest.getName());
+        posDetails.put(PERSON_OF_INTEREST_RACE, personofinterest.getRace());
+        posDetails.put(PERSON_OF_INTEREST_TATTOO, personofinterest.getTattooDescription());
+        posDetails.put(PERSON_OF_INTEREST_WEIGHT, personofinterest.getWeight());
+        posDetails.put(PERSON_OF_INTEREST_AGE, personofinterest.getAge());
+        return posDetails;
+    }
+
 }
