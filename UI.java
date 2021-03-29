@@ -24,7 +24,6 @@ public class UI {
     public void play() {
         System.out.println("****************************************");
         System.out.println("Welcome to Crime Fighter Software!");
-        boolean correct = false;
         while (true) {
             displayMainMenu();
             int userCommand = getUserCommand(mainMenu.length);
@@ -130,6 +129,12 @@ public class UI {
     Add a Case
     */
     private void addCase() {
+        /*
+        if (!loggedIn) {
+            System.out.println("Sorry, you have to be logged in to add a Case.");
+            return;
+        }
+        */
         Crime crime = fillCrime();  // get the type of crime
         ArrayList<Suspect> suspects = fillSuspects();  // Add the suspects
         ArrayList<Witness> witnesses = fillWitnesses();
@@ -163,6 +168,7 @@ public class UI {
         System.out.println("************ Adding Crime ************");
         System.out.println("Enter the type of Crime: ");
         String type = keyboard.nextLine();
+        
         System.out.println("Is this a felony? Enter \"true\" or \"false\".");
         boolean felony = keyboard.nextBoolean();
         Crime crime = new Crime(type, felony);
@@ -182,14 +188,15 @@ public class UI {
             System.out.println("************ Suspect #"+(i+1)+" ************");
             System.out.println("Enter Suspect's Name: ");
             String name = keyboard.nextLine();
-
+            keyboard.nextLine();
             System.out.println("Enter a known address:");
             String address = keyboard.nextLine();
+            // keyboard.next();
 
             System.out.println("Enter suspect's D.O.B. (in format MMDDYYYY):");
             int dob = keyboard.nextInt();
             String dobString = String.valueOf(dob);  // converting dob to string to check for formatting errors
-            if (dob > 99999999 || dobString.length() != 8) {
+            if (dob > 99999999 || (dobString.length() < 7 || dobString.length() > 8)) {
                 boolean formatted = false;
                 while (!formatted) {
                     System.out.println("Sorry, not a valid D.O.B. Please try again.");
@@ -206,39 +213,50 @@ public class UI {
 
             System.out.println("Enter a description of the suspect: ");
             String description = keyboard.nextLine();
+            // keyboard.next();
 
             System.out.println("Enter suspect's height: ");
             double height = keyboard.nextDouble();
+            // keyboard.next();
 
             System.out.println("Enter suspect's weight: ");
             double weight = keyboard.nextDouble();
+            // keyboard.next();
 
             System.out.println("Enter suspect's gender: ");
             String gender = keyboard.nextLine();
+            // keyboard.next();
 
             System.out.println("Enter suspect's race: ");
             String race = keyboard.nextLine();
+            // keyboard.next();
 
             System.out.println("Enter suspect's hair color: ");
             String hairColor = keyboard.nextLine();
+            // keyboard.next();
 
             System.out.println("Does the suspect have a tattoo? Enter \"y\" for yes or \"n\" for no. ");
             String hasTattoo = keyboard.nextLine();
+            // keyboard.nextLine();
             String tattoo;
             if (hasTattoo.equals("y")) {
                 System.out.println("Please enter a description of the suspect's tattoo:");
                 tattoo = keyboard.nextLine();
+                keyboard.nextLine();
             }
             else {
                 tattoo = "N/A";
             }
 
             System.out.println("Please enter the suspect's phone number: ");
-            int phoneNum = keyboard.nextInt();
+            int phoneNum = Integer.parseInt(keyboard.nextLine());
+            // keyboard.nextLine();
+            // keyboard.next();
 
 
             System.out.println("Does the suspect have a Criminal Record? Enter \"true\" if yes or \"false\" if no.");
             boolean criminalRecord = keyboard.nextBoolean();
+            keyboard.nextLine();
 
             Suspect suspect = new Suspect(name, address, dob, description, gender, 
             race, hairColor, height, weight, tattoo, criminalRecord,age, phoneNum);
@@ -264,9 +282,11 @@ public class UI {
 
             System.out.println("Please enter the witness's name:");
             String name = keyboard.nextLine();
+            keyboard.next();
 
             System.out.println("Please enter the witness's address: ");
             String address = keyboard.nextLine();
+            keyboard.next();
 
             System.out.println("Please enter the witness's D.O.B.:");
             int dob = keyboard.nextInt();
@@ -285,6 +305,7 @@ public class UI {
 
             System.out.println("Please enter the witness's statement:");
             String statement = keyboard.nextLine();
+            keyboard.next();
 
             System.out.println("Does the witness have a relationship to the victim? Enter \"true\" for yes or \"false\" for no.");
             boolean relationToVictim = keyboard.nextBoolean();
@@ -309,9 +330,11 @@ public class UI {
             System.out.println("************ Victim #"+(i+1)+" ************");
             System.out.println("Please enter the victim's name:");
             String name = keyboard.nextLine();
+            keyboard.next();
 
             System.out.println("Please enter the victim's address: ");
             String address = keyboard.nextLine();
+            keyboard.next();
 
             System.out.println("Please enter the victim's D.O.B.:");
             int dob = keyboard.nextInt();
@@ -336,6 +359,7 @@ public class UI {
             else {
                 System.out.println("Please enter the victim's statement:");
                 statement = keyboard.nextLine();
+                keyboard.next();
             }
             System.out.println("Please enter the victim's phone number:");
             int phoneNum = keyboard.nextInt();
@@ -369,12 +393,14 @@ public class UI {
             }
             System.out.println("Please enter the description: ");
             String description = keyboard.nextLine();
+            keyboard.next();
 
             System.out.println("Are there fingerprints? Enter \"true\" for yes or \"false\" for no.");
             boolean fingerprints = keyboard.nextBoolean();
 
             System.out.println("Enter where this evidence was found:");
             String location = keyboard.nextLine();
+            keyboard.next();
             Evidence evidence = new Evidence(description, location, weapon, drugs, fingerprints);
             evidenceList.add(evidence);
         }
@@ -395,27 +421,32 @@ public class UI {
         System.out.println("Enter the number of Categories you would like to search for");
         input = keyboard.nextInt();
         keyboard.nextLine();
+        keyboard.next();
         ArrayList<Person> personFound = new ArrayList<Person>();
         
         for(int i=0; i<input;i++){
             System.out.println("Keyword:" + (i+1) + " ");
             sInput = keyboard.nextLine();
+            keyboard.next();
             sInput.toLowerCase();
             if(sInput.equals("name")){
                 System.out.println("Enter name");
                 sInput = keyboard.nextLine();
+                keyboard.next();
                 personFound.addAll(Database.getFirst(sInput));
             }
             else if(sInput.equals("age")){
                 System.out.println("Enter age");
                 input1 = keyboard.nextInt();
                 keyboard.nextLine();
+                keyboard.next();
                 personFound.addAll(Database.getAge(input1));
             }
             else if(sInput.equals("height")){
                 System.out.println("Enter height");
                 inputD = keyboard.nextDouble();
                 keyboard.nextLine();
+                keyboard.next();
                 personFound.addAll(Database.getHeight(inputD));
             }
             else if(sInput.equals("weight")){
@@ -427,6 +458,7 @@ public class UI {
             else if(sInput.equals("gender")){
                 System.out.println("Enter gender");
                 sInput = keyboard.nextLine();
+                keyboard.next();
                 personFound.addAll(Database.getGender(sInput));
             }
             /*
@@ -439,11 +471,13 @@ public class UI {
             else if(sInput.equals("tattoo")){
                 System.out.println("Enter tattoo description");
                 sInput = keyboard.nextLine();
+                keyboard.next();
                 personFound.addAll(Database.getTattooDescription(sInput));
             }
             else if(sInput.equals("hair color")){
                 System.out.println("Enter hair color");
                 sInput = keyboard.nextLine();
+                keyboard.next();
                 personFound.addAll(Database.getHairColor(sInput));
             }
         }
@@ -478,6 +512,7 @@ public class UI {
     private int getUserCommand(int numCommands) {
         System.out.println("What would you like to do? ");
         String input = keyboard.nextLine();
+        
         int command = Integer.parseInt(input) - 1;
 
         if (command >= 0 && command <= numCommands - 1) {
@@ -493,7 +528,7 @@ public class UI {
     private String getField(String prompt) {
 
         System.out.print(prompt + ": ");
-        return keyboard.next();
+        return keyboard.nextLine();
     }
 
     /*

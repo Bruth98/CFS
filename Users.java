@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 
 public class Users {
-    private static Users users = null;
-    private static ArrayList<User> userList;
+    private static Users users;
+    private ArrayList<User> userList = new ArrayList<User>();
     
     private Users() {
+        userList.add(new User(1111, "password"));
         userList = DataLoader.loadUsers(); 
     }
 
@@ -19,7 +20,7 @@ public class Users {
         return userList;
     }
     //add get user by ID
-    public static boolean addUser(int userID, String password) {
+    public boolean addUser(int userID, String password) {
         if(haveUser(userID, password)) {
             return false;
         }
@@ -27,7 +28,10 @@ public class Users {
         return true;
     }
 
-    public static boolean haveUser(int userID, String password) {
+    public boolean haveUser(int userID, String password) {
+        if (userList == null) {
+            return false;
+        }
         for (User user : userList) {
             if (user.getUserID() == userID && user.getPassword().equals(password)) {
                 return true;
