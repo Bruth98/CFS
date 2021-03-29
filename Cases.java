@@ -28,7 +28,7 @@ public class Cases {
     }
 
     //add get user by ID
-    public boolean addCase (Crime crime, ArrayList<Suspect> suspects, ArrayList<Witness> witnesses, ArrayList<Victim> victims, ArrayList<Evidence> evidence, int caseID, String date, String location) {
+    public boolean addCase (Crime crime, ArrayList<Suspect> suspects, ArrayList<Witness> witnesses, ArrayList<Victim> victims, ArrayList<Evidence> evidence, int caseID, int date, String location) {
         if(haveCase(caseID)) {
             return false;
         }

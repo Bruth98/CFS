@@ -8,20 +8,20 @@ public class Case {
     private ArrayList<Victim> victims; 
     private ArrayList<Evidence> evidence;
     private int caseID;
-    private String date;
+    private int date;
     private String location;
 
     public Case (Crime crime2, ArrayList<Suspect> suspects2, ArrayList<Witness> witnesses2, ArrayList<Victim> victims2, ArrayList<Evidence> evidence2, int caseID2, int date2, String location2) {
-        this.crime = null;
-        this.suspects = null;
-        this.witnesses = null;
-        this.victims = null;
-        this.evidence = null;
-        this.caseID = 0;
-        this.date = "Never";
-        this.location = "Nowhere";
+        this.crime = crime2;
+        this.suspects = suspects2;
+        this.witnesses = witnesses2;
+        this.victims = victims2;
+        this.evidence = evidence2;
+        this.caseID = caseID2;
+        this.date = date2;
+        this.location = location2;
     }
-
+/*
     public Case(Crime crime, ArrayList<Suspect> suspects, ArrayList<Witness> witnesses, ArrayList<Victim> victims, ArrayList<Evidence> evidence, int caseID, String date, String location){
         this.crime = crime;
         this.suspects = suspects;
@@ -32,7 +32,7 @@ public class Case {
         this.date = date;
         this.location = location;
     }
-
+*/
     public Case(int caseID2, String date2, String location2, JSONArray agentIDS, JSONArray evidenceIDS) {
     }
 
@@ -64,7 +64,7 @@ public class Case {
         return this.caseID;
     }
 
-    public String getDate(){
+    public int getDate(){
         return this.date;
     }
 
