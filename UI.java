@@ -26,19 +26,14 @@ public class UI {
         System.out.println("Welcome to Crime Fighter Software!");
         boolean correct = false;
         while (true) {
-        displayMainMenu();
-        int userCommand = getUserCommand(mainMenu.length);
-        do {
+            displayMainMenu();
+            int userCommand = getUserCommand(mainMenu.length);
             if (userCommand == -1) {
                 System.out.println("Not a valid choice. Try again.");
             }
-            if (userCommand > 0 && userCommand < mainMenu.length ) {
-                correct = true;
-                if (userCommand == (mainMenu.length - 1)) {
+            if (userCommand == (mainMenu.length - 1)) {
                     cfs.logout();
-                }
             }
-        } while (!correct);
             switch (userCommand) {
                 case(0):  // Create Account
                     createAccount();
@@ -74,7 +69,6 @@ public class UI {
         String password = getField("password");
         if (cfs.createAccount(userID, password)) {
             System.out.println("You have successfully created an account.");
-            User user = new User(userID, password);  // IS THIS RIGHT?!?!
         }
         else {
             System.out.println("Sorry, that user already exists.");
@@ -90,12 +84,19 @@ public class UI {
         if (cfs.login(userID, password)) {
             loggedIn = true;
         }
+        else {
+            System.out.println("Sorry, that is not a User Name in the system.");
+        }
     }
 
     /*
     Get all Cases
     */
     private void getCases() {
+        if(!loggedIn) {
+            System.out.println("Sorry, please log in first.");
+            return;
+        }
         System.out.println("Searching Cases");
         int caseID = getCaseID();
         if (caseID == 0) { 
