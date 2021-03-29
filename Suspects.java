@@ -20,7 +20,7 @@ public class Suspects {
     
     public boolean addSuspect(String name, String address, int dob,
       int age, String description, String gender, String race, String hairColor,
-      double height, double weight, String tattoo, boolean criminalRecord, int phoneNum) {
+      double height, double weight, String tattoo, boolean criminalRecord, long phoneNum) {
         if (haveSuspect(name, dob)) {
             return false;
         }

@@ -39,7 +39,7 @@ public class Evidence {
     }
 
     public String toString(){
-        return "";
+        return "Is it a Weapon? "+this.weapon+"\nIs it Drugs? "+this.drugs+"\nAre there fingerprints? "+this.fingerprints+"\nDescription: "+this.description+"\nLocation Found: "+this.location;
     }
 
     public void setEvidenceID(int evidenceID){

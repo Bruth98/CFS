@@ -144,8 +144,9 @@ public class UI {
         int caseID = r.nextInt(1000);
         System.out.println("Please enter the date this occurred (in format MMDDYYYY).");
         int date = keyboard.nextInt();
+        /*
         String dateString = String.valueOf(date);  // converting dob to string to check for formatting errors
-        if (date > 99999999 || dateString.length() != 8) {
+        if (date > 99999999 || (dateString.length() < 7 || dateString.length() > 8)) {
             boolean formatted = false;
             while (!formatted) {
                 System.out.println("Sorry, not a valid date. Please try again.");
@@ -156,23 +157,26 @@ public class UI {
                 }
             }
         }
+        */
         System.out.println("Enter the location of the crime.");
         String location = keyboard.nextLine();
+        System.out.println("Case Added.");
         Case case2 = new Case(crime, suspects, witnesses, victims, evidence, caseID, date, location);
+        //System.out.println(case2.toString());
     }
 
     /*
     Fill out the Crime in a case
     */
     private Crime fillCrime() {
-        System.out.println("************ Adding Crime ************");
+        System.out.println("*************** Adding Crime ***************");
         System.out.println("Enter the type of Crime: ");
         String type = keyboard.nextLine();
         
         System.out.println("Is this a felony? Enter \"true\" or \"false\".");
         boolean felony = keyboard.nextBoolean();
         Crime crime = new Crime(type, felony);
-        System.out.println("************************");
+        System.out.println("********************************************");
         return crime;
     }
 
@@ -191,10 +195,11 @@ public class UI {
             keyboard.nextLine();
             System.out.println("Enter a known address:");
             String address = keyboard.nextLine();
-            // keyboard.next();
+        
 
             System.out.println("Enter suspect's D.O.B. (in format MMDDYYYY):");
             int dob = keyboard.nextInt();
+            /*
             String dobString = String.valueOf(dob);  // converting dob to string to check for formatting errors
             if (dob > 99999999 || (dobString.length() < 7 || dobString.length() > 8)) {
                 boolean formatted = false;
@@ -202,54 +207,54 @@ public class UI {
                     System.out.println("Sorry, not a valid D.O.B. Please try again.");
                     dob = keyboard.nextInt();
                     dobString = String.valueOf(dob);
-                    if (dob <= 99999999 && dobString.length() == 8) {
+                    if (dob > 99999999 || (dobString.length() < 7 || dobString.length() > 8)) {
                         formatted = true;
                     }
                 }
             }
-
+            */
             System.out.println("Enter suspect's age: ");
             int age = keyboard.nextInt();
+            keyboard.nextLine();
 
             System.out.println("Enter a description of the suspect: ");
             String description = keyboard.nextLine();
-            // keyboard.next();
+            
 
             System.out.println("Enter suspect's height: ");
             double height = keyboard.nextDouble();
-            // keyboard.next();
+            keyboard.nextLine();
 
             System.out.println("Enter suspect's weight: ");
             double weight = keyboard.nextDouble();
-            // keyboard.next();
+            keyboard.nextLine();
 
             System.out.println("Enter suspect's gender: ");
             String gender = keyboard.nextLine();
-            // keyboard.next();
+            
 
             System.out.println("Enter suspect's race: ");
             String race = keyboard.nextLine();
-            // keyboard.next();
+            
 
             System.out.println("Enter suspect's hair color: ");
             String hairColor = keyboard.nextLine();
-            // keyboard.next();
+            
 
             System.out.println("Does the suspect have a tattoo? Enter \"y\" for yes or \"n\" for no. ");
             String hasTattoo = keyboard.nextLine();
-            // keyboard.nextLine();
+            
             String tattoo;
             if (hasTattoo.equals("y")) {
                 System.out.println("Please enter a description of the suspect's tattoo:");
                 tattoo = keyboard.nextLine();
-                keyboard.nextLine();
             }
             else {
                 tattoo = "N/A";
             }
 
             System.out.println("Please enter the suspect's phone number: ");
-            int phoneNum = Integer.parseInt(keyboard.nextLine());
+            long phoneNum = keyboard.nextLong();
             // keyboard.nextLine();
             // keyboard.next();
 
@@ -261,18 +266,20 @@ public class UI {
             Suspect suspect = new Suspect(name, address, dob, description, gender, 
             race, hairColor, height, weight, tattoo, criminalRecord,age, phoneNum);
             suspectList.add(suspect);
-            System.out.println("************************");
+            System.out.println("********************************************");
+            System.out.println();
             
         }
-        System.out.println("************************");
-        return null;
+        System.out.println("********************************************");
+        System.out.println();
+        return suspectList;
     }
 
     /*
     Adding Witnesses to a case
     */
     private ArrayList<Witness> fillWitnesses() {
-        System.out.println("************ Adding Witnesses ************");
+        System.out.println("************* Adding Witnesses *************");
         int numWitness;
         System.out.println("How many witnesses are there?");
         numWitness = keyboard.nextInt();
@@ -282,38 +289,39 @@ public class UI {
 
             System.out.println("Please enter the witness's name:");
             String name = keyboard.nextLine();
-            keyboard.next();
+            keyboard.nextLine();
 
             System.out.println("Please enter the witness's address: ");
             String address = keyboard.nextLine();
-            keyboard.next();
 
             System.out.println("Please enter the witness's D.O.B.:");
             int dob = keyboard.nextInt();
+            /*
             String dobString = String.valueOf(dob);  // converting dob to string to check for formatting errors
-            if (dob > 99999999 || dobString.length() != 8) {
+            if (dob > 99999999 || (dobString.length() < 7 || dobString.length() > 8)) {
                 boolean formatted = false;
                 while (!formatted) {
                     System.out.println("Sorry, not a valid D.O.B. Please try again.");
                     dob = keyboard.nextInt();
                     dobString = String.valueOf(dob);
-                    if (dob <= 99999999 && dobString.length() == 8) {
+                    if (dob > 99999999 || (dobString.length() < 7 || dobString.length() > 8)) {
                         formatted = true;
                     }
                 }
             }
-
+            */
             System.out.println("Please enter the witness's statement:");
             String statement = keyboard.nextLine();
-            keyboard.next();
+            keyboard.nextLine();
 
             System.out.println("Does the witness have a relationship to the victim? Enter \"true\" for yes or \"false\" for no.");
             boolean relationToVictim = keyboard.nextBoolean();
 
             Witness witness = new Witness(name, address, dob, statement, relationToVictim);
             witnessList.add(witness);
-            System.out.println("************************");
+            System.out.println("********************************************");
         }
+        System.out.println("********************************************");
         return witnessList;
     }
 
@@ -330,26 +338,28 @@ public class UI {
             System.out.println("************ Victim #"+(i+1)+" ************");
             System.out.println("Please enter the victim's name:");
             String name = keyboard.nextLine();
-            keyboard.next();
+            keyboard.nextLine();
 
             System.out.println("Please enter the victim's address: ");
             String address = keyboard.nextLine();
-            keyboard.next();
+            
 
             System.out.println("Please enter the victim's D.O.B.:");
             int dob = keyboard.nextInt();
+            /*
             String dobString = String.valueOf(dob);  // converting dob to string to check for formatting errors
-            if (dob > 99999999 || dobString.length() != 8) {
+            if (dob > 99999999 || (dobString.length() < 7 || dobString.length() > 8)) {
                 boolean formatted = false;
                 while (!formatted) {
                     System.out.println("Sorry, not a valid D.O.B. Please try again.");
                     dob = keyboard.nextInt();
                     dobString = String.valueOf(dob);
-                    if (dob <= 99999999 && dobString.length() == 8) {
+                    if (dob > 99999999 || (dobString.length() < 7 || dobString.length() > 8)) {
                         formatted = true;
                     }
                 }
             }
+            */
             System.out.println("Is the victim alive? Enter \"true\" for yes or \"false\" for no.");
             boolean alive = keyboard.nextBoolean();
             String statement;
@@ -359,15 +369,17 @@ public class UI {
             else {
                 System.out.println("Please enter the victim's statement:");
                 statement = keyboard.nextLine();
-                keyboard.next();
+                keyboard.nextLine();
             }
             System.out.println("Please enter the victim's phone number:");
-            int phoneNum = keyboard.nextInt();
+            long phoneNum = keyboard.nextLong();
 
             Victim victim = new Victim(name, address, dob, statement, alive, phoneNum);
             victimList.add(victim);
-            System.out.println("************************");
+            System.out.println("********************************************");
+            System.out.println();
         }
+        System.out.println("********************************************");
         return victimList;
     }
 
@@ -393,17 +405,19 @@ public class UI {
             }
             System.out.println("Please enter the description: ");
             String description = keyboard.nextLine();
-            keyboard.next();
+            keyboard.nextLine();
 
             System.out.println("Are there fingerprints? Enter \"true\" for yes or \"false\" for no.");
             boolean fingerprints = keyboard.nextBoolean();
 
             System.out.println("Enter where this evidence was found:");
             String location = keyboard.nextLine();
-            keyboard.next();
+            keyboard.nextLine();
             Evidence evidence = new Evidence(description, location, weapon, drugs, fingerprints);
             evidenceList.add(evidence);
+            System.out.println("********************************************");
         }
+        System.out.println("********************************************");
         return evidenceList;
     }
 

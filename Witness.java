@@ -17,4 +17,8 @@ public class Witness extends Person{
     public boolean getRelation(){
         return this.relationToVictim;
     }
+
+    public String toString() {
+        return "Name: " +this.name+"\nAddress: "+this.address+"\nD.O.B.: "+this.dob+"\nRelationship to Victim? "+this.relationToVictim+"\nDescription:"+this.description;
+    }
 }

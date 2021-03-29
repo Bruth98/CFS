@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class Victim extends Person{
     //private ArrayList<String> incidentReport;
     private boolean alive;
-    private int phoneNum;
+    private long phoneNum;
 
     public Victim(){
         super();
@@ -11,7 +11,7 @@ public class Victim extends Person{
         this.phoneNum = 0000000000;
     }
 
-    public Victim(String name, String address, int dob, String description, boolean alive, int phoneNum){
+    public Victim(String name, String address, int dob, String description, boolean alive, long phoneNum){
         super();
         //this.incidentReport = incidentReport;
         this.alive = alive;
@@ -26,7 +26,11 @@ public class Victim extends Person{
         return this.alive;
     }
 
-    public int getPhoneNum(){
+    public long getPhoneNum(){
         return this.phoneNum;
+    }
+
+    public String toString() {
+        return "Name: " +this.name+"\nAddress: "+this.address+"\nD.O.B.: "+this.dob+"\nAre they alive? "+this.alive+"\nPhone Number: "+this.phoneNum+"\nDescription:"+this.description;
     }
 }
