@@ -152,7 +152,7 @@ public class UI {
         }
         System.out.println("Enter the location of the crime.");
         String location = keyboard.nextLine();
-        Case case = new Case(crime, suspects, witnesses, victims, evidence, caseID, date, location);
+        Case case2 = new Case(crime, suspects, witnesses, victims, evidence, caseID, date, location);
     }
 
     /*
@@ -229,14 +229,19 @@ public class UI {
                 tattoo = keyboard.nextLine();
             }
             else {
-                tattoo = null;
+                tattoo = "N/A";
             }
+
+            System.out.println("Please enter the suspect's phone number: ");
+            int phoneNum = keyboard.nextInt();
+
 
             System.out.println("Does the suspect have a Criminal Record? Enter \"true\" if yes or \"false\" if no.");
             boolean criminalRecord = keyboard.nextBoolean();
 
-            Suspect suspect = new Suspect(name, address, dob, description, gender,race,hairColor,weight,height,tattoo,criminalRecord,age);
-            suspectList.add(suspect));
+            Suspect suspect = new Suspect(name, address, dob, description, gender, 
+            race, hairColor, height, weight, tattoo, criminalRecord,age, phoneNum);
+            suspectList.add(suspect);
             System.out.println("************************");
             
         }

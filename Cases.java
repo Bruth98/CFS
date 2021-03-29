@@ -45,8 +45,8 @@ public class Cases {
         return false;
     }
 
-    public void saveUsers() {
-        DataWriter.saveUsers(); 
+    public void saveCases() {
+        DataWriter.saveCase(); 
     }
 }
 

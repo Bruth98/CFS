@@ -32,28 +32,13 @@ public class CFS {
         return cases.haveCase(caseID);
     }
 
-    public boolean getEvidence(String keyword) {
-        return evidence.haveKeyword(keyword);
-    }
-
-    public boolean getSuspects(String name, int dob) {
-        return suspects.haveSuspect(name, dob);
-    }
-
-    public boolean getCriminal(String firstName, String lastName) {
-        return criminals.haveName(firstName, lastName);
-    }
-
-    public boolean getWitnesses(String firstName, String lastName) {
-        return witnesses.haveName(firstName, lastName);
-    }
-
-    public boolean getVictims(String firstName, String lastName) {
-        return victims.haveName(firstName, lastName);
-    }
-
     public void logout() {
         users.saveUsers();
+        cases.saveCases();
+        suspects.saveSuspects();
+        evidence.saveEvidence();
+        witnesses.saveWitness();
+        victims.saveVictim();
     }
 
 

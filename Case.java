@@ -11,7 +11,7 @@ public class Case {
     private String date;
     private String location;
 
-    public Case () {
+    public Case (Crime crime2, ArrayList<Suspect> suspects2, ArrayList<Witness> witnesses2, ArrayList<Victim> victims2, ArrayList<Evidence> evidence2, int caseID2, int date2, String location2) {
         this.crime = null;
         this.suspects = null;
         this.witnesses = null;
