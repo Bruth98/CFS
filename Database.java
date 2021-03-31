@@ -55,24 +55,24 @@ public class Database {
         return null;
     }
 
-    public static ArrayList<Person> getHeight(double height) {
-        ArrayList<Person> person = new ArrayList<Person>();
-        for(int i=0; i < Persons.getInstance().getPerson().size();i++){
-            Person names = Persons.getInstance().getPerson().get(i);
+    public static ArrayList<PersonOfInterest> getHeight(double height) {
+        ArrayList<PersonOfInterest> person = new ArrayList<PersonOfInterest>();
+        for(int i=0; i < PersonsOfInterest.getInstance().getPerson().size();i++){
+            PersonOfInterest names = PersonsOfInterest.getInstance().getPerson().get(i);
             if(names.getHeight()== height){
-                return Persons.getInstance().getPerson();
+                return PersonsOfInterest.getInstance().getPerson();
             }
         }
         System.out.println("Sorry no suspects with that height.");
         return null;
     }
 
-    public static ArrayList<Person> getWeight(double weight) {
-        ArrayList<Person> person = new ArrayList<Person>();
+    public static ArrayList<PersonOfInterest> getWeight(double weight) {
+        ArrayList<PersonOfInterest> person = new ArrayList<PersonOfInterest>();
         for(int i=0; i < Persons.getInstance().getPerson().size();i++){
-            Person names = Persons.getInstance().getPerson().get(i);
+            PersonOfInterest names = PersonsOfInterest.getInstance().getPerson().get(i);
             if(names.getWeight() == weight){
-                return Persons.getInstance().getPerson();
+                return PersonsOfInterest.getInstance().getPerson();
             }
         }
         System.out.println("Sorry no suspects with that weight.");

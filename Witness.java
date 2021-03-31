@@ -3,10 +3,17 @@ public class Witness extends Person{
     //private ArrayList<String> incidentReport;
     private boolean relationToVictim;
 
-    public Witness(String name, String address, int dob, String description, boolean relationToVictim2) {
+    public Witness() {
         super();
-        //this.incidentReport = incidentReport;
-        this.relationToVictim = relationToVictim;
+        this.relationToVictim = false;
+    }
+
+    public Witness(String name, String address, int dob, String description, boolean relationToVictim2) {
+        super.name = name;
+        super.address = address;
+        super.dob = dob;
+        super.description = description;
+        this.relationToVictim = relationToVictim2;
     }
 
     /*

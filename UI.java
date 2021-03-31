@@ -65,6 +65,7 @@ public class UI {
     */
     private void createAccount() {
         int userID = getFieldInt("userID");
+        keyboard.nextLine();
         String password = getField("password");
         if (cfs.createAccount(userID, password)) {
             System.out.println("You have successfully created an account.");
@@ -162,7 +163,7 @@ public class UI {
         String location = keyboard.nextLine();
         System.out.println("Case Added.");
         Case case2 = new Case(crime, suspects, witnesses, victims, evidence, caseID, date, location);
-        //System.out.println(case2.toString());
+        System.out.println(case2.toString());
     }
 
     /*

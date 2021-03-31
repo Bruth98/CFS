@@ -74,18 +74,23 @@ public class Case {
 
     public String toString(){
         System.out.println("Case ID: " + this.caseID);
-        System.out.println("Crime: " + this.crime);
+        System.out.println("Crime: " + this.crime.toString());
+        int i = 0;
         for (Suspect suspect : suspects) {
-            System.out.println("Suspect: " + suspect.toString());
+            i++;
+            System.out.println("Suspect: " +i+" "+suspect.toString());
         }
+        i = 0;
         for (Witness witness : witnesses) {
-            System.out.println("Witness: " + witness.toString());
+            System.out.println("Witness: " +i+" "+ witness.toString());
         }
+        i = 0;
         for (Victim victim : victims) {
-            System.out.println("Victim: " + victim.toString());
+            System.out.println("Victim: " +i+" "+ victim.toString());
         }
+        i = 0;
         for (Evidence evi : evidence) {
-            System.out.println("Evidence: " + evidence.toString());
+            System.out.println("Evidence: " +i+" "+ evidence.toString());
         }
         System.out.println("Date: " + this.date);
         System.out.println("Location: " + this.location);

@@ -10,7 +10,7 @@ public class User {
         this.employeeID = employeeID;
         this.password = password;
     }
-
+    /*
     public String getSuspect(String firstName, String lastName) {
         return null;
     }
@@ -31,7 +31,7 @@ public class User {
         return null;
 
     }
-
+    */
     public int getUserID() {
         return this.employeeID;
     }

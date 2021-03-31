@@ -13,4 +13,8 @@ public class Crime {
     public boolean isFelony(){
         return this.felony;
     }
+
+    public String toString() {
+        return "Type of Crime: " +this.type+"\nFelony: "+this.felony;
+    }
 }

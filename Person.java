@@ -4,8 +4,8 @@ public class Person {
     public int dob;
     public int age;
     public String description;
-    public double height;
-    public double weight;
+    //public double height;
+    //public double weight;
 
     public Person() {
         this.name = "None";
@@ -13,8 +13,8 @@ public class Person {
         this.dob = 00000000;
         this.age = 0;
         this.description = "None";
-        this.height = 0;
-        this.weight = 0;
+        //this.height = 0;
+        //this.weight = 0;
     }
 
 
@@ -50,16 +50,17 @@ public class Person {
         return "Name: " + this.name + " Address: " + this.address + " DOB: " + this.dob + " Description: " + this.description;
     }
 
-
+    /*
     public double getHeight() {
         return this.height;
     }
+    */
 
-
+    /*
     public double getWeight() {
         return this.weight;
     }
-
+    */
 
     
 }

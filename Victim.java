@@ -6,14 +6,15 @@ public class Victim extends Person{
 
     public Victim(){
         super();
-        //this.incidentReport = null;
         this.alive = true;
         this.phoneNum = 0000000000;
     }
 
     public Victim(String name, String address, int dob, String description, boolean alive, long phoneNum){
-        super();
-        //this.incidentReport = incidentReport;
+        super.name = name;
+        super.address = address;
+        super.dob = dob;
+        super.description = description;
         this.alive = alive;
         this.phoneNum = phoneNum;
     }

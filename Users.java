@@ -5,7 +5,6 @@ public class Users {
     private ArrayList<User> userList = new ArrayList<User>();
     
     private Users() {
-        userList.add(new User(1111, "password"));
         userList = DataLoader.loadUsers(); 
     }
 
@@ -24,7 +23,8 @@ public class Users {
         if(haveUser(userID, password)) {
             return false;
         }
-        userList.add(new User(userID, password));
+        User user = new User(userID, password);
+        userList.add(user);
         return true;
     }
 

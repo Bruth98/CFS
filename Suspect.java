@@ -4,11 +4,24 @@ public class Suspect extends PersonOfInterest{
     long phoneNum;
     public Suspect() {
         super();
-        //this.family = null;
+        
+        this.phoneNum = 0000000000;
     }
     
     public Suspect(String name, String address, int dob, String description, String gender, String race, String hairColor, double weight, double height, String tattoo, boolean criminalRecord, int age, long phoneNum) {
-        super();
+        super.name = name;
+        super.address = address;
+        super.dob = dob;
+        super.description = description;
+        super.gender = gender;
+        super.race = race;
+        super.hairColor = hairColor;
+        super.weight = weight;
+        super.height = height;
+        super.tattoo = tattoo;
+        super.criminalRecord = criminalRecord;
+        super.age = age;
+        this.phoneNum = phoneNum;
     }
     
     public String toString(){
