@@ -5,7 +5,7 @@ public class Users {
     private ArrayList<User> userList = new ArrayList<User>();
     
     private Users() {
-        userList = DataLoader.loadUsers(); 
+        //userList = DataLoader.loadUsers(); 
     }
 
     public static Users getInstance() {
@@ -24,6 +24,7 @@ public class Users {
             return false;
         }
         User user = new User(userID, password);
+        System.out.println(user.toString());
         userList.add(user);
         return true;
     }

@@ -39,4 +39,8 @@ public class User {
     public String getPassword() {
         return this.password;
     }
+
+    public String toString() {
+        return "User Name: "+this.employeeID+"\nPassword: "+this.password;
+    }
 }
