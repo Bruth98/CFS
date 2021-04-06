@@ -28,8 +28,12 @@ public class CFS {
         return true;
     }
 
-    public boolean getCases(int caseID) {
+    public boolean findCases(int caseID) {
         return cases.haveCase(caseID);
+    }
+
+    public Case getCase(int caseID) {
+        return cases.getCase(caseID);
     }
 
     public void logout() {

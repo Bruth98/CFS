@@ -93,18 +93,23 @@ public class UI {
     Get all Cases
     */
     private void getCases() {
+        /*
         if(!loggedIn) {
             System.out.println("Sorry, please log in first.");
             return;
         }
+        */
         System.out.println("Searching Cases");
         int caseID = getCaseID();
         if (caseID == 0) { 
             return;
         }
-        /*
-        !! This method is not finished !!
-        */
+
+        if (cfs.findCases(caseID)) {
+            Case case2 = cfs.getCase(caseID);
+            System.out.println(case2.toString());
+        }
+        
     }
 
     /*
