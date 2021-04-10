@@ -1,3 +1,8 @@
+/**
+ * DataWriter written and tested by Michael Sana
+ * Test date 4/10/2021
+ */
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
