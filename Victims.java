@@ -18,7 +18,7 @@ public class Victims {
         return victimList;
     }
     //add get user by ID
-    public boolean addVictim(String name, String address, int dob, String description, ArrayList<String> incidentReport, boolean alive, long phoneNum) {
+    public boolean addVictim(String name, String address, int dob, String description, boolean alive, long phoneNum) {
         if(haveVictim(name, dob)) {
             return false;
         }

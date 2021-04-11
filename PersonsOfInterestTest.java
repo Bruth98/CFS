@@ -1,5 +1,5 @@
 /*
-PersonsOfInterest tested by Brady Ruth
+PersonsOfInterest class tested by Brady Ruth
 */
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -12,7 +12,7 @@ public class PersonsOfInterestTest {
     private PersonsOfInterest poi = PersonsOfInterest.getInstance();
     private ArrayList<PersonOfInterest> poiList = poi.getPerson();
     
-    // Setup the User ArrayList to have two User objects every time
+    // Setup the POI ArrayList to have two User objects every time
     @BeforeEach
     public void setup() {
         poiList.clear();
@@ -23,11 +23,11 @@ public class PersonsOfInterestTest {
         DataWriter.savePersonOfInterest();
     }
 
-    // Tear down the User ArrayList after each test
+    // Tear down the POI ArrayList after each test
     @AfterEach
     public void tearDown() {
         PersonsOfInterest.getInstance().getPerson().clear();
-        DataWriter.saveUsers();
+        DataWriter.savePersonOfInterest();
     }
     
     // Testing for valid first POI in ArrayList
