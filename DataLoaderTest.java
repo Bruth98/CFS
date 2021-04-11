@@ -116,8 +116,26 @@ public class DataLoaderTest {
     }
 
     @Test
-    void testGetAdminFirstUserFirstName(){
+    void testGetAdminFirstAdminFirstName(){
         adminList = DataLoader.loadAdmins();
         assertEquals("Michael", adminList.get(0).getFirstName());
+    }
+
+    @Test
+    void testGetAdminFirstAdminLastName(){
+        adminList = DataLoader.loadAdmins();
+        assertEquals("Sana", adminList.get(1).getLastName());
+    }    
+
+    @Test
+    void testGetAdminFirstAdminDepartment(){
+        adminList = DataLoader.loadAdmins();
+        assertEquals("investigation", adminList.get(2).getDepartment());
+    }
+
+    @Test
+    void testGetAdminFirstAdminID(){
+        adminList = DataLoader.loadAdmins();
+        assertEquals(00, adminList.get(3).getUserID());
     }
 }
