@@ -52,7 +52,7 @@ public class UsersTest {
 
     // Testing adding a User to ArrayList
     @Test
-    public void testAddUser() {
+C    public void testAddUser() {
         users.addUser(9999, "test");
         boolean hasUser = users.haveUser(9999, "test");
         assertTrue(hasUser);
