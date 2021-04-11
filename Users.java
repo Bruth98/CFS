@@ -26,6 +26,7 @@ public class Users {
         User user = new User(userID, password);
         System.out.println(user.toString());
         userList.add(user);
+        saveUsers();
         return true;
     }
 

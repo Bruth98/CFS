@@ -69,6 +69,7 @@ public class UI {
         String password = getField("password");
         if (cfs.createAccount(userID, password)) {
             System.out.println("You have successfully created an account.");
+            
         }
         else {
             System.out.println("Sorry, that user already exists.");
@@ -85,7 +86,7 @@ public class UI {
             loggedIn = true;
         }
         else {
-            System.out.println("Sorry, that is not a User Name in the system.");
+            System.out.println("Sorry, that is not an account in the system.");
         }
     }
 
@@ -557,7 +558,9 @@ public class UI {
     private int getFieldInt(String prompt) {
 
         System.out.print(prompt + ": ");
-        return keyboard.nextInt();
+        int num = keyboard.nextInt();
+        keyboard.nextLine();
+        return num;
     }
 
     /*

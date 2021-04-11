@@ -1,5 +1,7 @@
+/*
+DataWriter class tested by Michael Sana
+*/
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

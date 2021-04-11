@@ -1,5 +1,8 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
+/*
+DataLoader class tested by Michael Sana
+*/
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -24,7 +27,7 @@ public class DataLoaderTest {
     }
 
     @BeforeEach
-    public static void setup(){
+    public void setup(){
         //runs before each test
         userList.clear();
         userList.add(new User(00, "abcd"));
@@ -35,7 +38,7 @@ public class DataLoaderTest {
     }   
 
     @AfterEach
-    public static void teardown(){
+    public void teardown(){
         //runs at the end of each test
         Users.getInstance().getUsers().clear();
         DataWriter.saveUsers();
