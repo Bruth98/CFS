@@ -10,8 +10,12 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 public class DataLoaderTest {
+    //initalizations for User
     private static Users users = Users.getInstance();
     private static ArrayList<User> userList = users.getUsers();
+    //initalizations for Admin
+    private Admins admins = Admins.getInstance();
+    private ArrayList<Admin> adminList = admins.getAdmins();
 
     @BeforeClass
     public static void oneTimeSetUp(){
@@ -24,21 +28,30 @@ public class DataLoaderTest {
     }
 
     @BeforeEach
-    public static void setup(){
+    public void setup(){
         //runs before each test
         userList.clear();
         userList.add(new User(00, "abcd"));
         userList.add(new User(01, "efgh"));
         DataWriter.saveUsers();
 
+        //adminList.clear();
+        adminList.add(new Admin("Michael", "Sana", "investigation", 00));
+        adminList.add(new Admin("Brady", "Ruth", "cyber crimes", 01));
+        DataWriter.saveAdmins();
+
+
 
     }   
 
     @AfterEach
-    public static void teardown(){
+    public void teardown(){
         //runs at the end of each test
         Users.getInstance().getUsers().clear();
         DataWriter.saveUsers();
+
+        Admins.getInstance().getAdmins().clear();
+        DataWriter.saveAdmins();
     }
     //assertEquals(val1,val2)
     //assertFalse(val)
@@ -48,6 +61,7 @@ public class DataLoaderTest {
     //asserNull(val)
     //assertNotNull(val)
 
+    //All 'User' tests done by Michael Sana
     @Test
     void testGetUsersSize(){
         userList = DataLoader.loadUsers();
@@ -71,5 +85,36 @@ public class DataLoaderTest {
     void testGetUserFirstUserPassword(){
         userList = DataLoader.loadUsers();
         assertEquals("abcd", userList.get(1).getPassword());
+    }
+
+    @Test
+    void testGetUserSecondUserID(){
+        userList = DataLoader.loadUsers();
+        assertEquals("01", userList.get(3).getUserID());
+    }
+
+    @Test
+    void testGetUserSecondUserPassword(){
+        userList = DataLoader.loadUsers();
+        assertEquals("efgh", userList.get(4).getPassword());
+    }
+
+    @Test
+    void testGetAdminsSize(){
+        adminList = DataLoader.loadAdmins();
+        assertEquals(2, adminList.size());
+    }
+
+    @Test
+    void testGetAdminSizeZero(){
+        Admins.getInstance().getAdmins().clear();
+        DataWriter.saveAdmins();
+        assertEquals(0,adminList.size());
+    }
+
+    @Test
+    void testGetAdminFirstUserFirstName(){
+        adminList = DataLoader.loadAdmins();
+        assertEquals("Michael", adminList.get(0).getFirstName());
     }
 }

@@ -4,4 +4,9 @@
         "json simple jar/json-simple-1.1.1.jar",
         "JunitJar/junit-platform-console-standalone-1.8.0-M1.jar"
     ]
+    ,
+    "java.test.config":{
+        "workingDirectory": "${workspaceFolder}"
+    }
+
 }
