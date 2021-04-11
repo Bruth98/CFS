@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 public class PersonsOfInterest {
     private static PersonsOfInterest personsOfInterest = null;
-    private static ArrayList<PersonOfInterest> personOfInterestList;
+    private static ArrayList<PersonOfInterest> personOfInterestList = new ArrayList<PersonOfInterest>();
     private PersonsOfInterest(){
-        personOfInterestList = DataLoader.loadPersonofInterests();
+        //personOfInterestList = DataLoader.loadPersonofInterests();
     }
 
     public static PersonsOfInterest getInstance() {
@@ -28,6 +28,10 @@ public class PersonsOfInterest {
     }
 
     public boolean havePersonOfInterest(String name, String address,int dob, String description){
+        if (personOfInterestList == null) {
+            return false;
+        }
+
         for(PersonOfInterest personOfInterest : personOfInterestList){
             if(personOfInterest.getName().equals(name) && personOfInterest.getAddress().equals(address) && personOfInterest.getDescription().equals(description) && personOfInterest.getDOB() == dob){
                 return true;
