@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 public class Victims {
     private static Victims victims = null;
-    private static ArrayList<Victim> victimList;
+    private static ArrayList<Victim> victimList = new ArrayList<Victim>();
     
     private Victims() {
-        victimList = DataLoader.loadVictim(); 
+        // victimList = DataLoader.loadVictim(); 
     }
 
     public static Victims getInstance() {

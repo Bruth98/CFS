@@ -56,6 +56,7 @@ public class VictimsTest {
     @Test
     public void testAddVictim() {
         victims.addVictim("testName", "testAddress", 11111111, "testDescription", true, 1112222222);
-
+        boolean hasVictim = victims.haveVictim("testName", 11111111);
+        assertTrue(hasVictim);
     }
 }
