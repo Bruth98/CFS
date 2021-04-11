@@ -19,6 +19,9 @@ public class DataLoaderTest {
     //initalizations for Admin
     private Admins admins = Admins.getInstance();
     private ArrayList<Admin> adminList = admins.getAdmins();
+    //initalizations for Person
+    private Persons persons = Persons.getInstance();
+    private ArrayList<Person> personList = persons.getPerson();
 
     @BeforeClass
     public static void oneTimeSetUp(){
@@ -38,11 +41,15 @@ public class DataLoaderTest {
         userList.add(new User(01, "efgh"));
         DataWriter.saveUsers();
 
-        //adminList.clear();
+       // adminList.clear();
         adminList.add(new Admin("Michael", "Sana", "investigation", 00));
         adminList.add(new Admin("Brady", "Ruth", "cyber crimes", 01));
         DataWriter.saveAdmins();
 
+        personList.clear();
+        personList.add(new Person("Michael Sana", "105 Sandhurst Drive", 042601, 19,"white male"));
+        personList.add(new Person("Brady Ruth", "Somewhere in Cola", 000000, 20, "White male"));
+        DataWriter.savePersons();
 
 
     }   
@@ -55,6 +62,9 @@ public class DataLoaderTest {
 
         Admins.getInstance().getAdmins().clear();
         DataWriter.saveAdmins();
+
+        Persons.getInstance().getPerson().clear();
+        DataWriter.savePersons();
     }
     //assertEquals(val1,val2)
     //assertFalse(val)
@@ -138,4 +148,29 @@ public class DataLoaderTest {
         adminList = DataLoader.loadAdmins();
         assertEquals(00, adminList.get(3).getUserID());
     }
+
+    @Test
+    void testGetAdminSecondAdminFirstName(){
+        adminList = DataLoader.loadAdmins();
+        assertEquals("Brady", adminList.get(4).getFirstName());
+    }
+
+    @Test
+    void testgetAdminSecondAdminLastName(){
+        adminList = DataLoader.loadAdmins();
+        assertEquals("Ruth", adminList.get(5).getLastName());
+    }
+
+    @Test
+    void testGetAdminSecondAdminDepartment(){
+        adminList = DataLoader.loadAdmins();
+        assertEquals("cyber crimes", adminList.get(6).getDepartment());
+    }
+
+    @Test
+    void testGetAdminSecondAdminID(){
+        adminList = DataLoader.loadAdmins();
+        assertEquals(01, adminList.get(7).getUserID());
+    }
+
 }
