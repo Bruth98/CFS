@@ -26,7 +26,7 @@ public class PersonsOfInterestTest {
     // Tear down the User ArrayList after each test
     @AfterEach
     public void tearDown() {
-        Users.getInstance().getUsers().clear();
+        PersonsOfInterest.getInstance().getPerson().clear();
         DataWriter.saveUsers();
     }
     
@@ -54,8 +54,7 @@ public class PersonsOfInterestTest {
     // Testing adding a POI to the ArrayList
     @Test
     public void testAddPOI() {
-        poiList.add(new PersonOfInterest("testName", "testAddress", 11111111, 22, "testDesc", "testGender", "testRace", "testHair", 1.0, 1.0, "testTat", false));
-        poi.savePersonsOfInterest();
+        poi.addPersonOfInterest("testName", "testAddress", 11111111, 22, "testDesc", "testGender", "testRace", "testHair", 1.0, 1.0, "testTat", false);
         boolean hasPOI = poi.havePersonOfInterest("testName", "testAddress", 11111111, "testDesc");
         assertTrue(hasPOI);
     }
