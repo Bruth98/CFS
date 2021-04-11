@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 public class Witnesses {
     private static Witnesses witnesses = null;
-    private static ArrayList<Witness> witnessList;
+    private static ArrayList<Witness> witnessList = new ArrayList<Witness>();
     
     private Witnesses() {
-        witnessList = DataLoader.loadWitnesses(); 
+        // witnessList = DataLoader.loadWitnesses(); 
     }
 
     public static Witnesses getInstance() {
