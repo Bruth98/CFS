@@ -18,6 +18,9 @@ public class DataLoaderTestTwo {
     private Evidences evidences = Evidences.getInstance();
     private ArrayList<Evidence> evidenceList = evidences.getEvidence();
 
+    private Officers officers = Officers.getInstance();
+    private ArrayList<Officer> officerList = officers.getOfficers();
+
     @BeforeEach
     public void setup(){
         personList.clear();
