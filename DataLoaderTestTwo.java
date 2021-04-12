@@ -225,7 +225,7 @@ public class DataLoaderTestTwo {
     public void testGetEvidenceSizeZero(){
         Evidences.getInstance().getEvidence().clear();
         DataWriter.saveEvidence();
-        assertEquals(0, evidenceList.size())
+        assertEquals(0, evidenceList.size());
     }
 
     @Test
@@ -291,7 +291,7 @@ public class DataLoaderTestTwo {
     @Test
     public void testGetOfficerSize(){
         officerList = DataLoader.loadOfficer();
-        assertEquals(2, officerList.size();
+        assertEquals(2, officerList.size());
     }
 
     @Test
@@ -401,7 +401,7 @@ public class DataLoaderTestTwo {
     @Test
     public void testgetVictimSecondVictimDescription(){
         victimList = DataLoader.loadVictim();
-        assertEquals("white male", victimList.get(8).getDescription();
+        assertEquals("white male", victimList.get(8).getDescription());
     }
 
     @Test
