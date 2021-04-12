@@ -1,4 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.json.simple.JSONArray;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -23,6 +25,15 @@ public class DataLoaderTestTwo {
 
     private Suspects suspects = Suspects.getInstance();
     private ArrayList<Suspect> suspectList = suspects.getSuspects();
+
+    private Victims victims = Victims.getInstance();
+    private ArrayList<Victim> victimList = victims.getVictims();
+
+    private Cases cases = Cases.getInstance();
+    private ArrayList<Case> caseList = cases.getCases();
+
+    private Witnesses witnesses = Witnesses.getInstance();
+    private ArrayList<Witness> witnessList = witnesses.getWitnesses();
 
     @BeforeEach
     public void setup(){
@@ -50,6 +61,20 @@ public class DataLoaderTestTwo {
         suspectList.add(new Suspect("male", "american", "brown", "Michael Sana", "105 Sandhurts Drive", "white male", 042601, 45, 120, "dove", 19, false, 0000000000));
         suspectList.add(new Suspect("male", "american", "white", "Brady Ruth", "somewhere in cola", "white male", 000000, 50,140, "none", 20, true, 0000000000));
         */
+
+        victimList.clear();
+        victimList.add(new Victim("Michael", "105 Sandhurst Drive", 042601, "white male", true, 0000000000));
+        victimList.add(new Victim("Brady", "somewhere in cola", 000000, "white male", false, 0000000000));
+        DataWriter.saveVictims();
+
+        witnessList.clear();
+        witnessList.add(new Witness("Michael", "address",042601,"description", true));
+        witnessList.add(new Witness("name", "address", 000000, "description", false));
+        DataWriter.saveWitness();
+        
+
+
+
     }
 
     @AfterEach
@@ -66,6 +91,14 @@ public class DataLoaderTestTwo {
         Officers.getInstance().getOfficers().clear();
         DataWriter.saveOfficers();
 
+        Victims.getInstance().getVictims().clear();
+        DataWriter.saveVictims();
+
+        Cases.getInstance().getCases().clear();
+        DataWriter.saveCase();
+
+        Witnesses.getInstance().getWitnesses().clear();
+        DataWriter.saveWitness();
 
     }
     
@@ -302,6 +335,164 @@ public class DataLoaderTestTwo {
     public void testGetOfficerSecondOfficerDepartment(){
         officerList = DataLoader.loadOfficer();
         assertEquals("crime", officerList.get(5).getDepartment());
+    }
+
+    @Test
+    public void testGetVictimSize(){
+        victimList = DataLoader.loadVictim();
+        assertEquals(2, victimList.size());
+    }
+
+    @Test
+    public void testGetVictimSizeZero(){
+        Victims.getInstance().getVictims().clear();
+        victimList = DataLoader.loadVictim();
+        assertEquals(0, victimList.size());
+    }
+
+    @Test
+    public void testGetVictimFirstVictimName(){
+        victimList = DataLoader.loadVictim();
+        assertEquals("Michael", victimList.get(0).getName());
+    }
+
+    @Test
+    public void testGetVictimFirstVictimAddress(){
+        victimList = DataLoader.loadVictim();
+        assertEquals("105 Sandhurst Drive", victimList.get(1).getAddress());
+    }
+
+    @Test
+    public void testGetVictimFirstVictimDescription(){
+        victimList = DataLoader.loadVictim();
+        assertEquals("white male", victimList.get(2).getDescription());
+    }
+
+    @Test
+    public void testGetVictimFirstVictimDOB(){
+        victimList = DataLoader.loadVictim();
+        assertEquals(042601, victimList.get(3).getDOB());
+    }
+
+    @Test
+    public void testGetVictimFirstVictimPhoneNumber(){
+        victimList = DataLoader.loadVictim();
+        assertEquals(0000000000, victimList.get(4).getPhoneNum());
+    }
+
+    @Test
+    public void testGetVictimFirstVictimAlive(){
+        victimList = DataLoader.loadVictim();
+        assertEquals(true, victimList.get(5).getStatus());
+    }
+
+    @Test
+    public void testGetVictimSecondVictimName(){
+        victimList = DataLoader.loadVictim();
+        assertEquals("brady", victimList.get(6).getName());
+    }
+
+    @Test
+    public void testgetVictimSecondVictimAddress(){
+        victimList = DataLoader.loadVictim();
+        assertEquals("somewhere in cola", victimList.get(7).getAddress());
+    }
+
+    @Test
+    public void testgetVictimSecondVictimDescription(){
+        victimList = DataLoader.loadVictim();
+        assertEquals("white male", victimList.get(8).getDescription();
+    }
+
+    @Test
+    public void testGetvictimSecondVictimDOB(){
+        victimList = DataLoader.loadVictim();
+        assertEquals(000000, victimList.get(9).getDOB());
+    }
+
+    @Test
+    public void testGetVictimSecondVictimPhoneNum(){
+        victimList = DataLoader.loadVictim();
+        assertEquals(0000000000, victimList.get(10).getPhoneNum());
+    }
+
+    @Test
+    public void testGetVictimSecondVictimAlive(){
+        victimList = DataLoader.loadVictim();
+        assertEquals(true, victimList.get(11).getStatus());
+    }
+
+    @Test
+    public void testGetWitnessSize(){
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals(2, witnessList.size());
+    }
+
+    @Test
+    public void testGetWitnessSizeZero(){
+        Witnesses.getInstance().getWitnesses().clear();
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals(0, witnessList.size());
+    }
+
+    @Test
+    public void testGetWitnessFirstWitnessName(){
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals("Michael", witnessList.get(0).getName());
+    }
+
+    @Test
+    public void testGetWitnessFirstWitnessAddress(){
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals("address", witnessList.get(1).getAddress());
+    }
+
+    @Test
+    public void testGetWitnessFirstWitnessDOB(){
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals(042601, witnessList.get(2).getDOB());
+    }
+
+    @Test
+    public void testGetWitnessFirstWitnessDescription(){
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals("description", witnessList.get(3).getDescription());
+    }
+
+    @Test
+    public void testGetWitnessFirstWitnessRelated(){
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals(true, witnessList.get(4).getRelation());
+    }
+
+    @Test
+    public void testGetWitnessSecondWitnessName(){
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals("name", witnessList.get(5).getName());
+    }
+
+    @Test
+    public void testGetWitnessSecondWitnessAddress(){
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals("address", witnessList.get(6).getAddress());
+    }
+
+    @Test
+    public void testGetWitnessSecondWitnessDOB(){
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals(000000, witnessList.get(7).getDOB());
+    }
+
+    @Test
+    public void testGetWitnessSecondWitnessDescription(){
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals("description", witnessList.get(8).getDescription());
+    }
+
+    @Test
+    public void testGetWitnessSecondWitnessRelated(){
+        witnessList = DataLoader.loadWitnesses();
+        assertEquals(true, witnessList.get(9).getRelation());
     }
 
 }
