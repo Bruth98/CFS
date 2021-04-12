@@ -15,6 +15,9 @@ public class DataLoaderTestTwo {
     private Crimes crimes = Crimes.getInstance();
     private ArrayList<Crime> crimeList = crimes.getCrimes();
 
+    private Evidences evidences = Evidences.getInstance();
+    private ArrayList<Evidence> evidenceList = evidences.getEvidence();
+
     @BeforeEach
     public void setup(){
         personList.clear();
@@ -26,6 +29,10 @@ public class DataLoaderTestTwo {
         crimeList.add(new Crime("robbery", true));
         crimeList.add(new Crime("shooting", false));
         DataWriter.saveCrimes();
+
+        evidenceList.clear();
+        evidenceList.add(new Evidence("knife", "on the sidewalk", true, false, true));
+        evidenceList.add(new Evidence("sock", "idk", false,true,false));
     }
 
     @AfterEach
@@ -35,6 +42,9 @@ public class DataLoaderTestTwo {
 
         Crimes.getInstance().getCrimes().clear();
         DataWriter.saveCrimes();
+
+        Evidences.getInstance().getEvidence().clear();
+        DataWriter.saveEvidence();
     }
     
     @Test
@@ -148,6 +158,79 @@ public class DataLoaderTestTwo {
     public void testGetCrimeSecondCrimeFelony(){
         crimeList = DataLoader.loadCrime();
         assertEquals(false, crimeList.get(3).getType());
+    }
+
+    @Test
+    public void testGetEvidenceSize(){
+        evidenceList = DataLoader.loadEvidence();
+        assertEquals(2, evidenceList.size());
+    }
+
+    @Test
+    public void testGetEvidenceSizeZero(){
+        Evidences.getInstance().getEvidence().clear();
+        DataWriter.saveEvidence();
+        assertEquals(0, evidenceList.size())
+    }
+
+    @Test
+    public void testGetEvidenceFirstEvidenceDescription(){
+        evidenceList = DataLoader.loadEvidence();
+        assertEquals("knife", evidenceList.get(0).getDescription());
+    }
+
+    @Test
+    public void testGetEvidenceFirstEvidenceLocation(){
+        evidenceList = DataLoader.loadEvidence();
+        assertEquals("on the sidewalk", evidenceList.get(1).getLocation());
+    }
+
+    @Test
+    public void testGetEvidenceFirstEvidenceWeapon(){
+        evidenceList = DataLoader.loadEvidence();
+        assertEquals(true, evidenceList.get(2).isWeapon());
+    }
+
+    @Test
+    public void testGetEvidenceFirstEvidenceDrugs(){
+        evidenceList = DataLoader.loadEvidence();
+        assertEquals(false, evidenceList.get(3).isDrugs());
+    }
+
+    @Test
+    public void testGetEvidenceFirstEvidenceFingerprints(){
+        evidenceList = DataLoader.loadEvidence();
+        assertEquals(false, evidenceList.get(4).hasFingerprints());
+    }
+
+    @Test
+    public void testGetEvidenceSecondEvidenceDescription(){
+        evidenceList = DataLoader.loadEvidence();
+        assertEquals("socks", evidenceList.get(5).getDescription());
+    }
+
+    @Test
+    public void testGetEvidenceSecondEvidenceLocation(){
+        evidenceList = DataLoader.loadEvidence();
+        assertEquals("idk", evidenceList.get(6).getLocation());
+    }
+
+    @Test
+    public void testGetEvidenceSecondEvidenceWeapon(){
+        evidenceList = DataLoader.loadEvidence();
+        assertEquals(false, evidenceList.get(7).isWeapon());
+    }
+
+    @Test
+    public void testGetEvidenceSecondEvidenceDrugs(){
+        evidenceList = DataLoader.loadEvidence();
+        assertEquals(true, evidenceList.get(8).isDrugs());
+    }
+
+    @Test
+    public void testGetEvidenceSecondEvidenceFingerprint(){
+        evidenceList = DataLoader.loadEvidence();
+        assertEquals(false, evidenceList.get(9).hasFingerprints());
     }
 
 }
