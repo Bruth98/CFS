@@ -39,10 +39,17 @@ public class DataLoaderTestTwo {
         evidenceList.clear();
         evidenceList.add(new Evidence("knife", "on the sidewalk", true, false, true));
         evidenceList.add(new Evidence("sock", "idk", false,true,false));
+        DataWriter.saveEvidence();
 
         officerList.clear();
         officerList.add(new Officer("Michael", "Sana", "crime"));
         officerList.add(new Officer("Brady", "Ruth", "crime"));
+        DataWriter.saveOfficers();
+        /** 
+        suspectList.clear();
+        suspectList.add(new Suspect("male", "american", "brown", "Michael Sana", "105 Sandhurts Drive", "white male", 042601, 45, 120, "dove", 19, false, 0000000000));
+        suspectList.add(new Suspect("male", "american", "white", "Brady Ruth", "somewhere in cola", "white male", 000000, 50,140, "none", 20, true, 0000000000));
+        */
     }
 
     @AfterEach
@@ -58,6 +65,8 @@ public class DataLoaderTestTwo {
 
         Officers.getInstance().getOfficers().clear();
         DataWriter.saveOfficers();
+
+
     }
     
     @Test
