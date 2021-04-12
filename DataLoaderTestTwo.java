@@ -21,6 +21,9 @@ public class DataLoaderTestTwo {
     private Officers officers = Officers.getInstance();
     private ArrayList<Officer> officerList = officers.getOfficers();
 
+    private Suspects suspects = Suspects.getInstance();
+    private ArrayList<Suspect> suspectList = suspects.getSuspects();
+
     @BeforeEach
     public void setup(){
         personList.clear();
@@ -36,6 +39,10 @@ public class DataLoaderTestTwo {
         evidenceList.clear();
         evidenceList.add(new Evidence("knife", "on the sidewalk", true, false, true));
         evidenceList.add(new Evidence("sock", "idk", false,true,false));
+
+        officerList.clear();
+        officerList.add(new Officer("Michael", "Sana", "crime"));
+        officerList.add(new Officer("Brady", "Ruth", "crime"));
     }
 
     @AfterEach
@@ -48,6 +55,9 @@ public class DataLoaderTestTwo {
 
         Evidences.getInstance().getEvidence().clear();
         DataWriter.saveEvidence();
+
+        Officers.getInstance().getOfficers().clear();
+        DataWriter.saveOfficers();
     }
     
     @Test
@@ -234,6 +244,55 @@ public class DataLoaderTestTwo {
     public void testGetEvidenceSecondEvidenceFingerprint(){
         evidenceList = DataLoader.loadEvidence();
         assertEquals(false, evidenceList.get(9).hasFingerprints());
+    }
+
+    @Test
+    public void testGetOfficerSize(){
+        officerList = DataLoader.loadOfficer();
+        assertEquals(2, officerList.size();
+    }
+
+    @Test
+    public void testGetOfficerSizeZero(){
+        Officers.getInstance().getOfficers().clear();
+        officerList = DataLoader.loadOfficer();
+        assertEquals(0, officerList.size());
+    }
+
+    @Test
+    public void testGetOfficerFirstOfficerFirstName(){
+        officerList = DataLoader.loadOfficer();
+        assertEquals("Michael", officerList.get(0).getFirstName());
+    }
+
+    @Test
+    public void testGetOfficerFirstOfficerLastName(){
+        officerList = DataLoader.loadOfficer();
+        assertEquals("Sana", officerList.get(1).getLastName());
+    }
+
+    @Test
+    public void testGetOfficerFirstOfficerDepartment(){
+        officerList = DataLoader.loadOfficer();
+        assertEquals("crime", officerList.get(2).getDepartment());
+    }
+
+    @Test
+    public void testGetOfficerSecondOfficerFirstName(){
+        officerList = DataLoader.loadOfficer();
+        assertEquals("Brady", officerList.get(3).getFirstName());
+    }
+
+    @Test
+    public void testGetOfficerSecondOfficerLastName(){
+        officerList = DataLoader.loadOfficer();
+        assertEquals("Ruth", officerList.get(4).getLastName());
+    }
+
+    @Test
+    public void testGetOfficerSecondOfficerDepartment(){
+        officerList = DataLoader.loadOfficer();
+        assertEquals("crime", officerList.get(5).getDepartment());
     }
 
 }
