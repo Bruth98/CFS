@@ -76,99 +76,99 @@ public class DataLoaderTest {
 
     //All 'User' tests done by Michael Sana
     @Test
-    void testGetUsersSize(){
+    public void testGetUsersSize(){
         userList = DataLoader.loadUsers();
         assertEquals(2, userList.size());
     }
 
     @Test
-    void testGetUsersSizeZero(){
+    public void testGetUsersSizeZero(){
         Users.getInstance().getUsers().clear();
         DataWriter.saveUsers();
         assertEquals(0,userList.size());
     }
 
     @Test
-    void testGetUserFirstUserID(){
+    public void testGetUserFirstUserID(){
         userList = DataLoader.loadUsers();
         assertEquals(00, userList.get(0).getUserID());
 }
 
     @Test
-    void testGetUserFirstUserPassword(){
+    public void testGetUserFirstUserPassword(){
         userList = DataLoader.loadUsers();
         assertEquals("abcd", userList.get(1).getPassword());
     }
 
     @Test
-    void testGetUserSecondUserID(){
+    public void testGetUserSecondUserID(){
         userList = DataLoader.loadUsers();
         assertEquals("01", userList.get(3).getUserID());
     }
 
     @Test
-    void testGetUserSecondUserPassword(){
+    public void testGetUserSecondUserPassword(){
         userList = DataLoader.loadUsers();
         assertEquals("efgh", userList.get(4).getPassword());
     }
 
     @Test
-    void testGetAdminsSize(){
+    public void testGetAdminsSize(){
         adminList = DataLoader.loadAdmins();
         assertEquals(2, adminList.size());
     }
 
     @Test
-    void testGetAdminSizeZero(){
+    public void testGetAdminSizeZero(){
         Admins.getInstance().getAdmins().clear();
         DataWriter.saveAdmins();
         assertEquals(0,adminList.size());
     }
 
     @Test
-    void testGetAdminFirstAdminFirstName(){
+    public void testGetAdminFirstAdminFirstName(){
         adminList = DataLoader.loadAdmins();
         assertEquals("Michael", adminList.get(0).getFirstName());
     }
 
     @Test
-    void testGetAdminFirstAdminLastName(){
+    public void testGetAdminFirstAdminLastName(){
         adminList = DataLoader.loadAdmins();
         assertEquals("Sana", adminList.get(1).getLastName());
     }    
 
     @Test
-    void testGetAdminFirstAdminDepartment(){
+    public void testGetAdminFirstAdminDepartment(){
         adminList = DataLoader.loadAdmins();
         assertEquals("investigation", adminList.get(2).getDepartment());
     }
 
     @Test
-    void testGetAdminFirstAdminID(){
+    public void testGetAdminFirstAdminID(){
         adminList = DataLoader.loadAdmins();
         assertEquals(00, adminList.get(3).getUserID());
     }
 
     @Test
-    void testGetAdminSecondAdminFirstName(){
+    public void testGetAdminSecondAdminFirstName(){
         adminList = DataLoader.loadAdmins();
         assertEquals("Brady", adminList.get(4).getFirstName());
     }
 
     @Test
-    void testgetAdminSecondAdminLastName(){
+    public void testgetAdminSecondAdminLastName(){
         adminList = DataLoader.loadAdmins();
         assertEquals("Ruth", adminList.get(5).getLastName());
     }
 
     @Test
-    void testGetAdminSecondAdminDepartment(){
+    public void testGetAdminSecondAdminDepartment(){
         adminList = DataLoader.loadAdmins();
         assertEquals("cyber crimes", adminList.get(6).getDepartment());
     }
 
     @Test
-    void testGetAdminSecondAdminID(){
+    public void testGetAdminSecondAdminID(){
         adminList = DataLoader.loadAdmins();
         assertEquals(01, adminList.get(7).getUserID());
     }
