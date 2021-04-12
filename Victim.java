@@ -34,4 +34,8 @@ public class Victim extends Person{
     public String toString() {
         return "Name: " +this.name+"\nAddress: "+this.address+"\nD.O.B.: "+this.dob+"\nAre they alive? "+this.alive+"\nPhone Number: "+this.phoneNum+"\nDescription:"+this.description;
     }
+
+    public Object isAlive() {
+        return null;
+    }
 }
