@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 public class Cases {
     private static Cases cases;
-    private static ArrayList<Case> caseList;
+    private static ArrayList<Case> caseList = new ArrayList<Case>();
     
     private Cases() {
-        caseList = DataLoader.loadCase();
+        //caseList = DataLoader.loadCase();
     }
 
     public static Cases getInstance() {

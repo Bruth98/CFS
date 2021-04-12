@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 public class Victims {
     private static Victims victims = null;
-    private static ArrayList<Victim> victimList;
+    private static ArrayList<Victim> victimList = new ArrayList<Victim>();
     
     private Victims() {
-        victimList = DataLoader.loadVictim(); 
+        // victimList = DataLoader.loadVictim(); 
     }
 
     public static Victims getInstance() {
@@ -18,7 +18,7 @@ public class Victims {
         return victimList;
     }
     //add get user by ID
-    public boolean addVictim(String name, String address, int dob, String description, ArrayList<String> incidentReport, boolean alive, long phoneNum) {
+    public boolean addVictim(String name, String address, int dob, String description, boolean alive, long phoneNum) {
         if(haveVictim(name, dob)) {
             return false;
         }

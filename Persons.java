@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 public class Persons {
     private static Persons persons = null;
-    private static ArrayList<Person> personList;
+    private static ArrayList<Person> personList = new ArrayList<Person>();
     private Persons(){
-        personList = DataLoader.loadPersons();
+        // personList = DataLoader.loadPersons();
     }
 
     public static Persons getInstance() {

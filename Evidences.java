@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 public class Evidences {
     private static Evidences evidences;
-    private static ArrayList<Evidence> evidenceList;
+    private static ArrayList<Evidence> evidenceList = new ArrayList<Evidence>();
 
 
     private Evidences(){
-        evidenceList = DataLoader.loadEvidence();
+        // evidenceList = DataLoader.loadEvidence();
     }
 
     public static Evidences getInstance(){
