@@ -1,3 +1,7 @@
+/*
+This is the Crime class, it holds the type of Crime, and a boolean to determine whether or not it is a felony.
+Very simple class.
+*/
 public class Crime {
     public String type;
     public boolean felony;
