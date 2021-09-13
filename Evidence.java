@@ -1,3 +1,7 @@
+/* 
+This is the Evidence class, detailing everything required for a piece of Evidence.
+It is very similar to Case, Suspect, Witness, and Victim
+*/
 import java.util.ArrayList;
 //uml done
 public class Evidence {
