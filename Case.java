@@ -1,3 +1,6 @@
+/* 
+This is the class for all of our Cases inside of our software. This is what a case should be filled out as in the UI
+*/
 import java.util.ArrayList;
 //uml done
 import org.json.simple.JSONArray;
@@ -11,6 +14,11 @@ public class Case {
     private int date;
     private String location;
 
+    /*
+    Construct a new case
+    VSCode was being very weird the day we worked on this and was not allowing us to use our normal variable names inside of the constructor, so that is
+    why each variable has a 2 attached to the end of it.
+    */
     public Case (Crime crime2, ArrayList<Suspect> suspects2, ArrayList<Witness> witnesses2, ArrayList<Victim> victims2, ArrayList<Evidence> evidence2, int caseID2, int date2, String location2) {
         this.crime = crime2;
         this.suspects = suspects2;
@@ -36,6 +44,9 @@ public class Case {
     public Case(int caseID2, String date2, String location2, JSONArray agentIDS, JSONArray evidenceIDS) {
     }
 
+    /*
+    A chunk of code utilizing normal getters and setters
+    */
     public Crime getCrime(){
         return this.crime;
     }
@@ -72,6 +83,10 @@ public class Case {
         return this.location;
     }
 
+    /*
+    toString method that should print every detail attached to a Case, including each Suspect, Witness, Victim, and any and all Evidence. It also prints
+    the location and time that the crime took place.
+    */
     public String toString(){
         System.out.println("Case ID: " + this.caseID);
         System.out.println("Crime: " + this.crime.toString());
