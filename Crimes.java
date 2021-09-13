@@ -1,3 +1,6 @@
+/*
+This class is used to create an instance of a list with all current crimes. It both reads and writes to our JSON database.
+*/
 import java.util.ArrayList;
 
 public class Crimes {
